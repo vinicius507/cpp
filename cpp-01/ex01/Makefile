@@ -6,14 +6,11 @@
 #    By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/09 15:51:28 by vgoncalv          #+#    #+#              #
-#    Updated: 2023/05/09 19:43:40 by vgoncalv         ###   ########.fr        #
+#    Updated: 2023/05/09 20:48:47 by vgoncalv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = zombie-horde
-
-CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
