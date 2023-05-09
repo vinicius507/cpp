@@ -6,7 +6,7 @@
 #    By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/09 15:51:28 by vgoncalv          #+#    #+#              #
-#    Updated: 2023/05/09 15:53:25 by vgoncalv         ###   ########.fr        #
+#    Updated: 2023/05/09 16:19:47 by vgoncalv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98
 SRC_DIR := ./src
 BUILD_DIR = ./build
 
-SRCS := main.cpp Zombie.cpp
+SRCS := main.cpp Zombie.cpp newZombie.cpp
 
 OBJS := $(addprefix $(BUILD_DIR)/,$(SRCS:%.cpp=%.o))
 SRCS := $(addprefix $(SRC_DIR)/,$(SRCS))

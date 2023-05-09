@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   zombies.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 15:52:00 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/09 16:22:49 by vgoncalv         ###   ########.fr       */
+/*   Created: 2023/05/09 16:18:44 by vgoncalv          #+#    #+#             */
+/*   Updated: 2023/05/09 16:19:20 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "zombies.hpp"
+#ifndef ZOMBIES_HPP
+#define ZOMBIES_HPP
 
-int main(void) {
-  Zombie me = Zombie("Vini");
-  Zombie *marvin = newZombie("Marvin");
+#include "Zombie.hpp"
+#include <iostream>
 
-  me.announce();
-  marvin->announce();
-  delete marvin;
-  return (0);
-}
+Zombie *newZombie(std::string name);
+
+#endif // !ZOMBIES_HPP
