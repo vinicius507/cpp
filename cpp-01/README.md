@@ -44,3 +44,26 @@ To deallocate the array, we use the `delete[]` operator:
   Foo *objs = new Foo[n];
   delete[] objs;
 ```
+
+## EX-02: Shadow clone Jutsu!!
+
+The goal of this exercise is to get acquainted with C++ references!
+References, like pointers, are used to indirectly access objects.
+
+The differences between pointers and references are:
+
+- **Syntax**: Pointers are declared using an `*` before the variable name, while references use a `&`;
+
+```cpp
+  std::string name;     // Object.
+  std::string *namePtr; // Pointer.
+  std::string &namePtr; // Reference.
+```
+
+- **Nullability**: pointers can be set to null, while references must always be initialized to refer to an object and cannot be null.
+- **Assignment**: pointers can be reassigned to point to a different object, while references cannot.
+- **Memory management**: pointers are ideally used for dynamic memory allocation, while references provide an alias for an existing object.
+
+> **Note**
+>
+> Unlike pointers, references cannot be null. Attempting to declare a reference without initializing it will result in a compiler error.
