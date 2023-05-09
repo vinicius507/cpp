@@ -25,3 +25,22 @@ To deallocate a class instantiated with the new keyword, we use the delete opera
   Foo *obj = new Foo();
   delete obj; // Free!
 ```
+
+## EX-01: A horde!
+
+The goal of this exercise is to create a function `zombieHorde` that generates a horde of zombies. The function should use a single allocation for all zombies. We can do this by allocating an array of Zombie objects:
+
+```cpp
+  Foo *objs = new Foo[n];
+```
+
+> **Note**
+>
+> This method requires the presence of a default constructor implementation for `Zombie`.
+
+To deallocate the array, we use the `delete[]` operator:
+
+```cpp
+  Foo *objs = new Foo[n];
+  delete[] objs;
+```
