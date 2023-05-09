@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:11:35 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/04 17:33:04 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:40:15 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 PhoneBook::PhoneBook(void) { this->num_contacts = 0; };
 
-PhoneBook::~PhoneBook(void) { return; };
+PhoneBook::~PhoneBook(void){};
 
 int PhoneBook::get_num_contacts(void) { return this->num_contacts; }
 

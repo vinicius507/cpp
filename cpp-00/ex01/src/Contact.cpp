@@ -6,15 +6,15 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:48:58 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/04 16:57:26 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:40:05 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-Contact::Contact(void) { return; };
+Contact::Contact(void){};
 
-Contact::~Contact(void) { return; };
+Contact::~Contact(void){};
 
 void Contact::set_first_name(std::string first_name) {
   this->first_name = first_name;
