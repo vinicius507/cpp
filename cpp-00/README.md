@@ -65,4 +65,4 @@ phonebook# EXIT
 
 > This exercise introduces Class level attributes and methods using the `static` keyword.
 
-The goal of this exercise is the reconstruction of the [`Account.cpp`](./ex02/Account.cpp) file, which was lost somehow (use version control systems, people!). Which contains the implementations for the `Account` class.
+The goal of this exercise is the reconstruction of the [`Account.cpp`](./ex02/Account.cpp) file, which was lost somehow. Which contains the implementations for the `Account` class.
