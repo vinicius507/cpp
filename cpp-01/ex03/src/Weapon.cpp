@@ -18,6 +18,6 @@ Weapon::~Weapon(void) {}
 
 Weapon::Weapon(const Weapon &other) : type(other.type) {}
 
-std::string Weapon::getType(void) { return (this->type); }
+const std::string &Weapon::getType(void) const { return (this->type); }
 
 void Weapon::setType(std::string type) { this->type = type; }

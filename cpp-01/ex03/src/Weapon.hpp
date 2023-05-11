@@ -46,7 +46,7 @@ public:
   /**
    * @brief Getter for the type of the weapon.
    */
-  std::string getType(void);
+  const std::string &getType(void) const;
 
   /**
    * @brief Setter for the type of the weapon.
