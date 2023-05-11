@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:49:57 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/09 20:55:42 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/11 13:48:27 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@
 class Weapon {
 public:
   /**
-   * @brief Default constructor for the Weapon class.
+   * @brief Constructor for the Weapon class, with a type.
+   *
+   * @param type The type of the weapon.
    */
-  Weapon(void);
+  Weapon(std::string type);
 
   /**
    * @brief Copy constructor for the Weapon class.
