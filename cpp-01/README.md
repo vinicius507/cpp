@@ -67,3 +67,43 @@ The differences between pointers and references are:
 > **Note**
 >
 > Unlike pointers, references cannot be null. Attempting to declare a reference without initializing it will result in a compiler error.
+
+## EX-03: Violence
+
+In this exercise, the goal was to create the classes `Weapon`, `HumanA` and `HumanB`. The `HumanA` is always armed, while the `HumanB` _might_ be armed.
+
+The following code will print an attack with `crude spiked club`, followed by an attack with `some other type of club`, for both `HumanA` and `HumanB`:
+
+```cpp
+int main()
+{
+  {
+    Weapon club = Weapon("crude spiked club");
+    HumanA bob("Bob", club);
+    bob.attack();
+    club.setType("some other type of club");
+    bob.attack();
+  }
+  {
+    Weapon club = Weapon("crude spiked club");
+    HumanB jim("Jim");
+    jim.setWeapon(club);
+    jim.attack();
+    club.setType("some other type of club");
+    jim.attack();
+  }
+  return 0;
+}
+```
+
+Output:
+
+```
+$ ./war
+Bob attacks with their crude spiked club
+Bob attacks with their some other type of club
+Jim attacks with their crude spiked club
+Jim attacks with their some other type of club
+```
+
+So, both `HumanA` and `HumanB` have a `weapon` attribute, but the types are different. Since `HumanA` must **always** be armed, its attribute is of type `Weapon&`, while `HumanB` **might** be armed, so its attribute is of the type `Weapon*`.
