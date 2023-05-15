@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 18:19:47 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/13 17:35:46 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/15 16:20:50 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,17 @@ int main(int argc, char *argv[]) {
   while (std::getline(file, line)) {
     if (file.bad()) {
       std::cerr << "Error: failed to read file." << std::endl;
-      file.close();
-      exit(1);
+      return (1);
     }
     res << search_replace(line, search, replace);
   }
   file.close();
 
   std::ofstream outfile(fname, std::ofstream::trunc);
+  if (outfile.is_open() == false) {
+    std::cerr << "Error: failed to write modified content." << std::endl;
+    return (1);
+  }
   outfile << res.rdbuf();
   outfile.close();
   return (0);
