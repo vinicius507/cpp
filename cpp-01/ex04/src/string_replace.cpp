@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 21:30:42 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/17 22:03:27 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/17 22:18:15 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ std::string string_replace(const std::string &str,
     start = search + search_str.length();
     search = str.find(search_str, start);
   }
-  buf << str.substr(start) << std::endl;
+  buf << str.substr(start);
   return (buf.str());
 }
