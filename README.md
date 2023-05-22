@@ -10,9 +10,8 @@ This module introduces the C++ language and some of its features, like C++ Strea
 
 [`🔗 README.md`](./cpp-00/README.md)
 
-## [WIP] CPP-01
+## CPP-01
 
-> **Note**
-> Still on it!
+This module goes deeper into C++ streams and classes.
 
 [`🔗 README.md`](./cpp-01/README.md)

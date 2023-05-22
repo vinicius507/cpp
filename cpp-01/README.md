@@ -132,3 +132,40 @@ void (Harl::*f)(void) = &Harl::debug;
 // Then we can call the function for the current instance:
 (this->*f)();
 ```
+
+## Ex06: Seriously? Still complaining, Harl?!
+
+The objective of this exercise was to reimplement the Harl class in a way that the complain() method calls all the private methods above the specified log level.
+
+```sh
+$ ./harlFilter DEBUG
+🧐 DEBUG
+I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really
+do!
+ℹ️ INFO
+I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! I
+f you did, I wouldn’t be asking for more!
+⚠️ WARNING
+I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you start
+ed working here since last month.
+❌ ERROR
+This is unacceptable! I want to speak to the manager now.
+```
+
+Instead of using a pointer to a member function, we're required to use a `switch` statement. In order to achieve the desired behavior, we can add the `break` statement to the `ERROR` level and to the `default` case:
+
+```cpp
+  switch (logLevel) {
+  case 0:
+    this->debug();
+  case 1:
+    this->info();
+  case 2:
+    this->warning();
+  case 3:
+    this->error();
+    break;
+  default:
+    this->invalid();
+    break;
+```
