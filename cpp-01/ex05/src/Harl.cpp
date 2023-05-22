@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 16:01:41 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/22 16:22:55 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/22 16:51:11 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,17 @@ Harl::Harl() {}
 Harl::~Harl() {}
 
 void Harl::complain(std::string level) {
+  int logLevel;
   std::string logLevels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
   void (Harl::*handlers[5])(void) = {&Harl::debug, &Harl::info, &Harl::warning,
-                                     &Harl::error};
+                                     &Harl::error, &Harl::invalid};
 
-  for (int i = 0; i < 4; i++) {
-    if (logLevels[i] == level) {
-      (this->*handlers[i])();
-      return;
+  for (logLevel = 0; logLevel < 4; logLevel++) {
+    if (logLevels[logLevel] == level) {
+      break;
     }
   }
-  std::cerr << "❓INVALID" << std::endl
-            << "'" << level << "'? You can't even select a decent level?!"
-            << std::endl;
+  (this->*handlers[logLevel])();
 }
 
 void Harl::debug(void) {
@@ -60,5 +58,11 @@ void Harl::warning(void) {
 void Harl::error(void) {
   std::cerr << "❌ ERROR" << std::endl
             << "This is unacceptable! I want to speak to the manager now."
+            << std::endl;
+}
+
+void Harl::invalid(void) {
+  std::cerr << "❓INVALID" << std::endl
+            << "Level what? You can't even select a decent level?!"
             << std::endl;
 }

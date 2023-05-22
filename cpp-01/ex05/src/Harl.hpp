@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:56:58 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/22 16:01:33 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/22 16:50:29 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@ private:
    * @brief Harl sends an error message.
    */
   void error(void);
+
+  /**
+   * @brief Harl complains about an invalid log level.
+   */
+  void invalid(void);
 };
 
 #endif // !HARL_HPP
