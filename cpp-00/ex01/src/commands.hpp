@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:29:32 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/08 10:47:40 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:20:47 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef void (*t_cmd_handler)(PhoneBook &book);
  *
  * @param book The phonebook instance.
  */
-void cmd_add(PhoneBook &book);
+void addCommand(PhoneBook &book);
 
 /**
  * @brief Command handler for the SEARCH command.
@@ -42,6 +42,6 @@ void cmd_add(PhoneBook &book);
  *
  * @param book The phonebook instance.
  */
-void cmd_search(PhoneBook &book);
+void searchCommand(PhoneBook &book);
 
 #endif // !COMMANDS_HPP

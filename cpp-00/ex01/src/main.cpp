@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:28:31 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/09 08:37:36 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:20:32 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,18 @@
 #include "commands.hpp"
 #include "prompt.hpp"
 
-static t_cmd_handler get_cmd_handler(std::string cmd) {
+/**
+ * @brief Returns the desired command handler function.
+ *
+ * @param cmd The command string.
+ * @return A pointer to the handler of `cmd`, if it exists. Otherwise, it is
+ * NULL.
+ */
+static t_cmd_handler getCommandHandler(std::string cmd) {
   if (cmd == "ADD")
-    return (cmd_add);
+    return (addCommand);
   if (cmd == "SEARCH")
-    return (cmd_search);
+    return (searchCommand);
   return (NULL);
 }
 
@@ -39,7 +46,7 @@ int main(void) {
     if (cmd == "EXIT")
       break;
 
-    handler = get_cmd_handler(cmd);
+    handler = getCommandHandler(cmd);
 
     if (handler == NULL) {
       std::cerr << "Unknown command: " << cmd << std::endl;

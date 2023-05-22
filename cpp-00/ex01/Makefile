@@ -6,7 +6,7 @@
 #    By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 16:22:43 by vgoncalv          #+#    #+#              #
-#    Updated: 2023/05/08 10:35:46 by vgoncalv         ###   ########.fr        #
+#    Updated: 2023/05/22 15:23:45 by vgoncalv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98
 SRC_DIR := ./src
 BUILD_DIR = ./build
 
-SRCS := main.cpp Contact.cpp PhoneBook.cpp cmd_add.cpp cmd_search.cpp prompt.cpp
+SRCS := main.cpp Contact.cpp PhoneBook.cpp addCommand.cpp searchCommand.cpp prompt.cpp
 
 OBJS := $(addprefix $(BUILD_DIR)/,$(SRCS:%.cpp=%.o))
 SRCS := $(addprefix $(SRC_DIR)/,$(SRCS))

@@ -6,11 +6,11 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 18:19:47 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/17 22:05:01 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:35:49 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "string_replace.hpp"
+#include "stringReplace.hpp"
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
     return (1);
   }
   ss << ifs.rdbuf();
-  ofs << string_replace(ss.str(), argv[2], argv[3]);
+  ofs << stringReplace(ss.str(), argv[2], argv[3]);
   ifs.close();
   ofs.close();
   return (0);

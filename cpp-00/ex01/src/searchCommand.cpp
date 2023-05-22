@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_search.cpp                                     :+:      :+:    :+:   */
+/*   searchCommand.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:34:20 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/09 08:47:53 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:29:05 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <sstream>
 #include <string>
 
-static std::string table_border(void) {
+static std::string tableBorder(void) {
   std::stringstream border;
 
   for (int i = 0; i < 4; i++) {
@@ -28,7 +28,7 @@ static std::string table_border(void) {
   return (border.str());
 }
 
-static std::string table_cell(std::string content) {
+static std::string tableCell(std::string content) {
   std::stringstream cell;
 
   cell << "|" << std::setw(10) << std::setfill(' ');
@@ -42,37 +42,36 @@ static std::string table_cell(std::string content) {
   return (cell.str());
 }
 
-static std::string table_row(std::string id, std::string first_name,
-                             std::string last_name, std::string nickname) {
+static std::string tableRow(std::string id, std::string first_name,
+                            std::string last_name, std::string nickname) {
   std::stringstream row;
 
-  row << table_cell(id) << table_cell(first_name) << table_cell(last_name)
-      << table_cell(nickname) << "|" << std::endl;
+  row << tableCell(id) << tableCell(first_name) << tableCell(last_name)
+      << tableCell(nickname) << "|" << std::endl;
 
   return (row.str());
 }
 
-static std::string phonebook_table(PhoneBook &book) {
+static std::string phonebookTable(PhoneBook &book) {
   Contact ctt;
   std::stringstream tbl;
 
-  tbl << table_border()
-      << table_row("Id", "First name", "Last name", "Nickname")
-      << table_border();
+  tbl << tableBorder() << tableRow("Id", "First name", "Last name", "Nickname")
+      << tableBorder();
 
   for (int i = 0; i < book.get_num_contacts(); i++) {
     ctt = book.get_contact(i);
 
-    tbl << table_row(std::to_string(i + 1), ctt.get_first_name(),
-                     ctt.get_last_name(), ctt.get_nickname());
+    tbl << tableRow(std::to_string(i + 1), ctt.get_first_name(),
+                    ctt.get_last_name(), ctt.get_nickname());
   }
 
-  tbl << table_border();
+  tbl << tableBorder();
 
   return (tbl.str());
 }
 
-static int get_contact_index(PhoneBook &book) {
+static int getContactIndex(PhoneBook &book) {
   int index;
   std::stringstream ss;
 
@@ -86,13 +85,12 @@ static int get_contact_index(PhoneBook &book) {
       return (index - 1);
     }
 
-    std::cerr << "error: expected a number of the range bigger than 1 and "
-                 "smaller than "
+    std::cerr << "Error: expected a positive integer smaller than"
               << book.get_num_contacts() + 1 << std::endl;
   }
 }
 
-static void display_contact_info(Contact &ctt) {
+static void displayContactInfo(Contact &ctt) {
   std::cout << "First name: " << ctt.get_first_name() << std::endl
             << "Last name: " << ctt.get_last_name() << std::endl
             << "Nickname: " << ctt.get_nickname() << std::endl
@@ -100,7 +98,7 @@ static void display_contact_info(Contact &ctt) {
             << "Darkest secret: " << ctt.get_darkest_secret() << std::endl;
 }
 
-void cmd_search(PhoneBook &book) {
+void searchCommand(PhoneBook &book) {
   int index;
   Contact ctt;
 
@@ -109,8 +107,8 @@ void cmd_search(PhoneBook &book) {
     return;
   }
 
-  std::cout << phonebook_table(book);
-  index = get_contact_index(book);
+  std::cout << phonebookTable(book);
+  index = getContactIndex(book);
   ctt = book.get_contact(index);
-  display_contact_info(ctt);
+  displayContactInfo(ctt);
 }

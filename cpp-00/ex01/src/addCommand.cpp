@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_add.cpp                                        :+:      :+:    :+:   */
+/*   addCommand.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:30:44 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/08 10:33:22 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:23:49 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "commands.hpp"
 #include "prompt.hpp"
 
-void cmd_add(PhoneBook &book) {
+void addCommand(PhoneBook &book) {
   Contact ctt;
 
   std::cout << "Add a contact" << std::endl;

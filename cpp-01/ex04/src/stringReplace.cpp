@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_replace.cpp                                 :+:      :+:    :+:   */
+/*   stringReplace.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 21:30:42 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/17 22:18:15 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:35:41 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "string_replace.hpp"
+#include "stringReplace.hpp"
 #include <sstream>
 
-std::string string_replace(const std::string &str,
-                           const std::string &search_str,
-                           const std::string &replace_str, int count) {
+std::string stringReplace(const std::string &str, const std::string &search_str,
+                          const std::string &replace_str, int count) {
   size_t start;
   size_t search;
   int substitutions;
