@@ -118,3 +118,17 @@ $ ./fed test Hello Goodbye
 $ cat test.replace
 Goodbye, World!
 ```
+
+## Ex05: Harl no!
+
+The aim of this exercise was to create a `Harl` class, which includes the private instance methods `debug()`, `info()`, `ẁarning()` and `error()`. Additionally, it provides a public method `complain()`, which invokes one of the private methods.
+
+Instead of utilizing a conventional if-else chain, the requirement was to utilize pointers to member functions.
+
+```cpp
+// We can declare a function pointer to a member function of the `Harl` class as follows:
+void (Harl::*f)(void) = &Harl::debug;
+
+// Then we can call the function for the current instance:
+(this->*f)();
+```
