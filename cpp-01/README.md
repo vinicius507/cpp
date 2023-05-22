@@ -107,3 +107,14 @@ Jim attacks with their some other type of club
 ```
 
 So, both `HumanA` and `HumanB` have a `weapon` attribute, but the types are different. Since `HumanA` must **always** be armed, its attribute is of type `Weapon&`, while `HumanB` **might** be armed, so its attribute is of the type `Weapon*`.
+
+## Ex04: String replace
+
+The objective of this exercise was to develop a tool that replaces all occurrences of a specific string in a file (without utilizing `std::string::replace`), and save the modified content to a file with the extension `.replace`.
+
+```sh
+$ echo "Hello, World!" > test
+$ ./fed test Hello Goodbye
+$ cat test.replace
+Goodbye, World!
+```
