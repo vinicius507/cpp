@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 16:44:30 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/22 17:02:01 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/24 19:54:25 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main(int argc, char **argv) {
   if (argc != 2) {
     std::cerr << "Usage: " << argv[0] << " LEVEL" << std::endl
               << std::endl
+              << "Arguments" << std::endl
               << "  LEVEL  One of DEBUG, INFO, WARNING, ERROR." << std::endl;
     return (1);
   }
