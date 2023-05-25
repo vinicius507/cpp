@@ -6,11 +6,11 @@
 #    By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 14:33:18 by vgoncalv          #+#    #+#              #
-#    Updated: 2023/05/25 15:22:48 by vgoncalv         ###   ########.fr        #
+#    Updated: 2023/05/25 19:32:25 by vgoncalv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=fixed
+NAME=bsp
 
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
