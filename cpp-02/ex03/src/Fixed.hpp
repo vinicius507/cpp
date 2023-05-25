@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:52:24 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/25 15:06:43 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/25 17:35:17 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ public:
    * @return A boolean indicating whether the current object is greater than
    * `other`.
    */
-  bool operator>(const Fixed &other);
+  bool operator>(const Fixed &other) const;
 
   /**
    * @brief Less-than comparison operator.
@@ -100,7 +100,7 @@ public:
    * @return A boolean indicating whether the current object is less than
    * `other`.
    */
-  bool operator<(const Fixed &other);
+  bool operator<(const Fixed &other) const;
 
   /**
    * @brief Less-than or equal to comparison operator.
@@ -112,7 +112,7 @@ public:
    * @return A boolean indicating whether the current object is less than or
    * equal to `other`.
    */
-  bool operator>=(const Fixed &other);
+  bool operator>=(const Fixed &other) const;
 
   /**
    * @brief Greater-than or equal to comparison operator.
@@ -124,7 +124,7 @@ public:
    * @return A boolean indicating whether the current object is greater than or
    * equal to `other`.
    */
-  bool operator<=(const Fixed &other);
+  bool operator<=(const Fixed &other) const;
 
   /**
    * @brief Equality comparison operator.
@@ -135,7 +135,7 @@ public:
    * @param other The Fixed object to compare with.
    * @return A boolean indicating whether the two objects are equal.
    */
-  bool operator==(const Fixed &other);
+  bool operator==(const Fixed &other) const;
 
   /**
    * @brief Inequality comparison operator.
@@ -146,7 +146,7 @@ public:
    * @param other The Fixed object to compare with.
    * @return A boolean indicating whether the two objects are not equal.
    */
-  bool operator!=(const Fixed &other);
+  bool operator!=(const Fixed &other) const;
 
   /**
    * @brief Addition operator.
@@ -307,6 +307,19 @@ public:
    * and `b`.
    */
   static const Fixed &max(const Fixed &a, const Fixed &b);
+
+  /**
+   * @brief Calculates the absolute value of the fixed-point number.
+   *
+   * This method calculates the absolute value of the fixed-point number,
+   * returning a new Fixed object with the absolute value. If the fixed-point
+   * number is less than zero, the method uses two's complement to obtain the
+   * absolute value.
+   *
+   * @return A new Fixed object representing the absolute value of the
+   * fixed-point number.
+   */
+  Fixed abs(void) const;
 
 private:
   int rawBits; /**< The raw integer value representing the fixed-point number.

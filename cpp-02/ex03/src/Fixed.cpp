@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:52:11 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/25 15:10:01 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/25 17:34:48 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,27 @@ Fixed &Fixed::operator=(const Fixed &other) {
   return (*this);
 }
 
-bool Fixed::operator>(const Fixed &other) {
+bool Fixed::operator>(const Fixed &other) const {
   return (this->getRawBits() > other.getRawBits());
 }
 
-bool Fixed::operator<(const Fixed &other) {
+bool Fixed::operator<(const Fixed &other) const {
   return (this->getRawBits() < other.getRawBits());
 }
 
-bool Fixed::operator>=(const Fixed &other) {
+bool Fixed::operator>=(const Fixed &other) const {
   return (this->getRawBits() >= other.getRawBits());
 }
 
-bool Fixed::operator<=(const Fixed &other) {
+bool Fixed::operator<=(const Fixed &other) const {
   return (this->getRawBits() <= other.getRawBits());
 }
 
-bool Fixed::operator==(const Fixed &other) {
+bool Fixed::operator==(const Fixed &other) const {
   return (this->getRawBits() == other.getRawBits());
 }
 
-bool Fixed::operator!=(const Fixed &other) {
+bool Fixed::operator!=(const Fixed &other) const {
   return (this->getRawBits() != other.getRawBits());
 }
 
@@ -136,4 +136,13 @@ const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
 std::ostream &operator<<(std::ostream &out, Fixed const &f) {
   out << f.toFloat();
   return (out);
+}
+
+Fixed Fixed::abs(void) const {
+  Fixed absoluteValue(*this);
+
+  if (this->getRawBits() < 0) {
+    absoluteValue.setRawBits(~absoluteValue.getRawBits() + 1);
+  }
+  return (absoluteValue);
 }
