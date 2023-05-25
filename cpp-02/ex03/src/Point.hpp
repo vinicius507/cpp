@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 15:13:12 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/25 15:31:36 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/25 17:20:52 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,28 @@ public:
   Point &operator=(const Point &other);
 
   /**
+   * @brief Equality comparison operator.
+   *
+   * Compares the value of the current Point object with another Point object
+   * `other`.
+   *
+   * @param other The Point object to compare with.
+   * @return A boolean indicating whether the two objects are equal.
+   */
+  bool operator==(const Point &other) const;
+
+  /**
+   * @brief Inequality comparison operator.
+   *
+   * Compares the value of the current Point object with another Point object
+   * `other`.
+   *
+   * @param other The Point object to compare with.
+   * @return A boolean indicating whether the two objects differ.
+   */
+  bool operator!=(const Point &other) const;
+
+  /**
    * @brief Retrieves the x-coordinate of the Point.
    *
    * @return The x-coordinate of the Point.
@@ -90,5 +112,15 @@ private:
   const Fixed x; /**< The x-coordinate of the Point. */
   const Fixed y; /**< The y-coordinate of the Point. */
 };
+
+/**
+ * @brief Overload for the insertion operator for the Point class.
+ *
+ * It inserts the Point into the output stream in the format Point(x, y).
+ *
+ * @param out The output stream.
+ * @param point The point to be placed.
+ */
+std::ostream &operator<<(std::ostream &out, const Point &point);
 
 #endif // !POINT_HPP
