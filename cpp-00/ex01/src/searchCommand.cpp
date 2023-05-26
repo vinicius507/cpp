@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:34:20 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/26 14:42:13 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:43:48 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ static int getContactIndex(PhoneBook &book) {
       return (index - 1);
     }
 
-    std::cerr << "Error: expected a positive integer smaller than"
+    std::cerr << "Error: expected a positive integer smaller than "
               << book.getNumContacts() + 1 << std::endl;
   }
 }
