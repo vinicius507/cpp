@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:34:20 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/22 15:29:05 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:42:13 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ static std::string phonebookTable(PhoneBook &book) {
   tbl << tableBorder() << tableRow("Id", "First name", "Last name", "Nickname")
       << tableBorder();
 
-  for (int i = 0; i < book.get_num_contacts(); i++) {
-    ctt = book.get_contact(i);
+  for (int i = 0; i < book.getNumContacts(); i++) {
+    ctt = book.getContact(i);
 
     tbl << tableRow(idToString(i + 1), ctt.getFirstName(), ctt.getLastName(),
                     ctt.getNickname());
@@ -88,34 +88,34 @@ static int getContactIndex(PhoneBook &book) {
     ss << prompt("Choose a contact by its index to view its information: ");
     ss >> index;
 
-    if (index > 0 && index <= book.get_num_contacts()) {
+    if (index > 0 && index <= book.getNumContacts()) {
       return (index - 1);
     }
 
     std::cerr << "Error: expected a positive integer smaller than"
-              << book.get_num_contacts() + 1 << std::endl;
+              << book.getNumContacts() + 1 << std::endl;
   }
 }
 
 static void displayContactInfo(Contact &ctt) {
-  std::cout << "First name: " << ctt.get_first_name() << std::endl
-            << "Last name: " << ctt.get_last_name() << std::endl
-            << "Nickname: " << ctt.get_nickname() << std::endl
-            << "Phone number: " << ctt.get_phone_number() << std::endl
-            << "Darkest secret: " << ctt.get_darkest_secret() << std::endl;
+  std::cout << "First name: " << ctt.getFirstName() << std::endl
+            << "Last name: " << ctt.getLastName() << std::endl
+            << "Nickname: " << ctt.getNickname() << std::endl
+            << "Phone number: " << ctt.getPhoneNumber() << std::endl
+            << "Darkest secret: " << ctt.getDarkestSecret() << std::endl;
 }
 
 void searchCommand(PhoneBook &book) {
   int index;
   Contact ctt;
 
-  if (book.get_num_contacts() == 0) {
+  if (book.getNumContacts() == 0) {
     std::cout << "There are 0 contacts in the phonebook." << std::endl;
     return;
   }
 
   std::cout << phonebookTable(book);
   index = getContactIndex(book);
-  ctt = book.get_contact(index);
+  ctt = book.getContact(index);
   displayContactInfo(ctt);
 }

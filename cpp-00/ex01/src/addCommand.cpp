@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 10:30:44 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/22 15:23:49 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:42:24 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void addCommand(PhoneBook &book) {
 
   std::cout << "Add a contact" << std::endl;
 
-  ctt.set_first_name(prompt("First name: "));
-  ctt.set_last_name(prompt("Last name: "));
-  ctt.set_nickname(prompt("Nickname: "));
-  ctt.set_phone_number(prompt("Phone number: "));
-  ctt.set_darkest_secret(prompt("Darkest secret: "));
+  ctt.setFirstName(prompt("First name: "));
+  ctt.setLastName(prompt("Last name: "));
+  ctt.setNickname(prompt("Nickname: "));
+  ctt.setPhoneNumber(prompt("Phone number: "));
+  ctt.setDarkestSecret(prompt("Darkest secret: "));
 
-  book.add_contact(ctt);
+  book.addContact(ctt);
 }
