@@ -52,6 +52,13 @@ static std::string tableRow(std::string id, std::string first_name,
   return (row.str());
 }
 
+static std::string idToString(int id) {
+  std::stringstream ss;
+
+  ss << id;
+  return (ss.str());
+}
+
 static std::string phonebookTable(PhoneBook &book) {
   Contact ctt;
   std::stringstream tbl;
@@ -62,8 +69,8 @@ static std::string phonebookTable(PhoneBook &book) {
   for (int i = 0; i < book.get_num_contacts(); i++) {
     ctt = book.get_contact(i);
 
-    tbl << tableRow(std::to_string(i + 1), ctt.get_first_name(),
-                    ctt.get_last_name(), ctt.get_nickname());
+    tbl << tableRow(idToString(i + 1), ctt.getFirstName(), ctt.getLastName(),
+                    ctt.getNickname());
   }
 
   tbl << tableBorder();
