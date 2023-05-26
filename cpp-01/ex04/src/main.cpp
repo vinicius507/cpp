@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 18:19:47 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/22 15:35:49 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:19:29 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
     usage(argv[0]);
     return (1);
   }
-  ofs.open(std::string(argv[1]) + ".replace");
+  ofs.open((std::string(argv[1]) + ".replace").c_str());
   if (ofs.fail()) {
     std::cerr << "Error: failed create replace file: " << argv[1] << std::endl;
     return (1);
