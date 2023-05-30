@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:00:47 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/30 15:31:23 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/30 15:32:14 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ public:
    *
    * @param name The name for the ScavTrap object.
    */
-  ScavTrap(const std::string name);
+  explicit ScavTrap(const std::string name);
 
   /**
    * @brief Copy constructor for the ScavTrap class.
