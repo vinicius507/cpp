@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 19:57:21 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/29 18:22:43 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/30 15:43:23 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ ClapTrap::~ClapTrap(void) {
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
-  const_cast<std::string &>(this->name) = other.name + " (clone)";
+  this->setName(other.getName());
   this->setHitPoints(other.getHitPoints());
   this->energyPoints = other.energyPoints;
   this->setAttackDamage(other.getAttackDamage());
@@ -107,6 +107,10 @@ unsigned int ClapTrap::getHitPoints() const { return (this->hitPoints); }
 unsigned int ClapTrap::getEnergyPoints() const { return (this->energyPoints); }
 
 unsigned int ClapTrap::getAttackDamage() const { return (this->attackDamage); }
+
+void ClapTrap::setName(const std::string name) {
+  const_cast<std::string &>(this->name) = name;
+}
 
 void ClapTrap::setHitPoints(unsigned int hitPoints) {
   this->hitPoints = hitPoints;
