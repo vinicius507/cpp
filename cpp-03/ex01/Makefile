@@ -6,11 +6,11 @@
 #    By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 19:35:21 by vgoncalv          #+#    #+#              #
-#    Updated: 2023/05/29 18:22:06 by vgoncalv         ###   ########.fr        #
+#    Updated: 2023/05/30 15:50:14 by vgoncalv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=clap
+NAME=scav
 
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
