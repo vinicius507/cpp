@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:00:47 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/30 15:20:42 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/30 15:31:23 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,14 @@ public:
    * @brief Destructor for the ScavTrap class.
    */
   ~ScavTrap(void);
+
+  /**
+   * @brief Assignment operator for the ScavTrap class.
+   *
+   * @param other The ScavTrap object to be assigned.
+   * @return A reference to the ScavTrap object.
+   */
+  ScavTrap &operator=(const ScavTrap &other);
 
   /**
    * @brief The ScavTrap object attacks a target.

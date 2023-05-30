@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 18:08:01 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/29 18:30:34 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/30 15:30:32 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,14 @@ ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other.getName()) {
 ScavTrap::~ScavTrap(void) {
   std::cout << "Administrator: Goodbye, " << this->getName()
             << ". (Gosh, I hate Scavs)." << std::endl;
+}
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
+  this->setName(other.getName());
+  this->setHitPoints(other.getHitPoints());
+  this->setEnergyPoints(other.getEnergyPoints());
+  this->setAttackDamage(other.getAttackDamage());
+  return (*this);
 }
 
 void ScavTrap::attack(std::string target) {
