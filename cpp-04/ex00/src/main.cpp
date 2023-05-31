@@ -6,13 +6,14 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:26:31 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/31 14:12:27 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:28:08 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongAnimal.hpp"
 #include <iostream>
 
 static void subjectExample(void) {
@@ -31,8 +32,16 @@ static void subjectExample(void) {
   delete meta;
 }
 
+static void wrongExample(void) {
+  const WrongAnimal *meta = new WrongAnimal();
+
+  meta->makeSound();
+
+  delete meta;
+}
+
 int main(void) {
   subjectExample();
-
+  wrongExample();
   return (0);
 }
