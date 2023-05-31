@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:26:31 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/31 15:32:56 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/31 15:34:48 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 #include <iostream>
 
 #define NUM_ANIMALS 10
+#define TEST(TEST_CASE)                                                        \
+  do {                                                                         \
+    std::cout << "Test: " << #TEST_CASE << std::endl;                          \
+    TEST_CASE();                                                               \
+    std::cout << std::setw(32) << std::setfill('-') << "" << std::endl;        \
+  } while (0)
 
 static void populateDogs(Animal **animals) {
   for (int i = 0; i < NUM_ANIMALS / 2; i++) {
@@ -77,8 +83,8 @@ static void deepCopyTest(void) {
 }
 
 int main(void) {
-  basicSubjectTest();
-  extendedSubjectTest();
-  deepCopyTest();
+  TEST(basicSubjectTest);
+  TEST(extendedSubjectTest);
+  TEST(deepCopyTest);
   return (0);
 }
