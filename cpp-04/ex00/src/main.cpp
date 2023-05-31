@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:26:31 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/31 14:31:10 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:35:24 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "Dog.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+#include "WrongDog.hpp"
 #include <iostream>
 
 static void subjectExample(void) {
@@ -35,11 +36,14 @@ static void subjectExample(void) {
 
 static void wrongExample(void) {
   const WrongAnimal *meta = new WrongAnimal();
+  const WrongAnimal *j = new WrongDog();
   const WrongAnimal *i = new WrongCat();
 
   std::cout << i->getType() << std::endl;
-  meta->makeSound();
+  std::cout << j->getType() << std::endl;
+  j->makeSound();
   i->makeSound();
+  meta->makeSound();
 
   delete i;
   delete meta;
