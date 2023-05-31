@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:27:14 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/31 14:06:14 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:30:21 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ public:
   Animal(const Animal &other);
 
   /**
-   * @brief Virtgual destructor for the Animal class.
+   * @brief Virtual destructor for the Animal class.
    */
   virtual ~Animal(void);
 
