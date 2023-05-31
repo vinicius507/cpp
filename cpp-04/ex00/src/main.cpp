@@ -51,7 +51,7 @@ static void wrongExample(void) {
 
 static void additionalTests(void) {
   Cat cat;
-  Cat wrongCat;
+  WrongCat wrongCat;
   Animal catCopy = Cat();
   WrongAnimal wrongCatCopy = WrongCat();
 
