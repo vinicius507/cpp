@@ -6,7 +6,7 @@
 #    By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 13:26:02 by vgoncalv          #+#    #+#              #
-#    Updated: 2023/05/31 14:08:16 by vgoncalv         ###   ########.fr        #
+#    Updated: 2023/05/31 14:12:10 by vgoncalv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra -Wshadow --pedantic-errors -std=c++98
 SRC_DIR := ./src
 BUILD_DIR = ./build
 
-SRCS := main.cpp Animal.cpp Cat.cpp
+SRCS := main.cpp Animal.cpp Cat.cpp Dog.cpp
 
 OBJS := $(addprefix $(BUILD_DIR)/,$(SRCS:%.cpp=%.o))
 SRCS := $(addprefix $(SRC_DIR)/,$(SRCS))
