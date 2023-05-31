@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:26:31 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/31 14:38:37 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:43:55 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,15 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 #include "WrongDog.hpp"
+#include <iomanip>
 #include <iostream>
+
+#define TEST(TEST_FUNC)                                                        \
+  do {                                                                         \
+    std::cout << #TEST_FUNC << ":" << std::endl;                               \
+    TEST_FUNC();                                                               \
+    std::cout << std::setw(32) << std::setfill('-') << "" << std::endl;        \
+  } while (0)
 
 static void subjectExample(void) {
   const Animal *meta = new Animal();
@@ -66,8 +74,8 @@ static void additionalTests(void) {
 }
 
 int main(void) {
-  subjectExample();
-  wrongExample();
-  additionalTests();
+  TEST(subjectExample);
+  TEST(wrongExample);
+  TEST(additionalTests);
   return (0);
 }
