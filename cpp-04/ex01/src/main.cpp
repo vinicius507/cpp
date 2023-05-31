@@ -17,3 +17,17 @@
 #include <iostream>
 
 int main(void) { return (0); }
+static void basicSubjectTest(void) {
+  const Animal *j = new Dog();
+  const Animal *i = new Cat();
+
+  delete j; // should not create a leak
+  delete i;
+}
+
+int main(void) {
+  Animal *animals[NUM_ANIMALS] = {NULL};
+
+  basicSubjectTest();
+  return (0);
+}
