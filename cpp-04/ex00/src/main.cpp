@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:26:31 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/31 14:35:24 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/05/31 14:38:37 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,25 @@ static void wrongExample(void) {
   delete meta;
 }
 
+static void additionalTests(void) {
+  Cat cat;
+  Cat wrongCat;
+  Animal catCopy = Cat();
+  WrongAnimal wrongCatCopy = WrongCat();
+
+  std::cout << cat.getType() << std::endl
+            << wrongCat.getType() << std::endl
+            << catCopy.getType() << std::endl
+            << wrongCatCopy.getType() << std::endl;
+  cat.makeSound();
+  wrongCat.makeSound();
+  catCopy.makeSound();
+  wrongCatCopy.makeSound();
+}
+
 int main(void) {
   subjectExample();
   wrongExample();
+  additionalTests();
   return (0);
 }
