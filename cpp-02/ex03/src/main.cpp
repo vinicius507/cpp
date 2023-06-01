@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:33:26 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/25 17:44:41 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/01 17:15:46 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int main(void) {
   Point testPoints[N_TESTS] = {
       Point(2, 1), // inside
       Point(3, 4), // outside
-      Point(2, 0), // on the boundary
+      Point(2, 0), // on edge
       Point(0, 0), // on vertex a
       Point(5, 0), // on vertex b
       Point(2, 3), // on vertex c
       Point(1, 1), // inside
       Point(3, 1), // inside
-      Point(3, 2), // inside
+      Point(3, 2), // on edge
       Point(1, 4)  // outside
   };
   std::string state[2] = {"outside", "inside"};
