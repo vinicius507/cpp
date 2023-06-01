@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:52:11 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/01 16:03:42 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/01 16:27:19 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,22 @@ Fixed Fixed::operator-(const Fixed &other) {
 }
 
 Fixed Fixed::operator*(const Fixed &other) {
-  Fixed res = Fixed(this->toFloat() * other.toFloat());
+  int _rawBits;
+  Fixed res = Fixed();
+
+  _rawBits = this->getRawBits() * other.getRawBits();
+  _rawBits >>= 8;
+  res.setRawBits(_rawBits);
   return (res);
 }
 
 Fixed Fixed::operator/(const Fixed &other) {
-  Fixed res = Fixed(this->toFloat() / other.toFloat());
+  int _rawBits;
+  Fixed res = Fixed();
+
+  _rawBits = this->getRawBits() << 8;
+  _rawBits /= other.getRawBits();
+  res.setRawBits(_rawBits);
   return (res);
 }
 
