@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:20:56 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/06 15:30:49 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/06 16:50:27 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 
 AMateria::AMateria(void) {}
 
-AMateria::AMateria(const std::string &type) {}
+AMateria::AMateria(const std::string &type) {
+  const_cast<std::string &>(this->type) = type;
+}
 
 AMateria::AMateria(const AMateria &other) { *this = other; }
 
