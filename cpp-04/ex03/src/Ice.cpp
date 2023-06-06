@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:34:45 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/06 15:45:40 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/06 16:51:22 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ Ice::Ice(const Ice &other) { *this = other; }
 
 Ice::~Ice(void) {}
 
-Ice &Ice::operator=(const Ice &other) { return (*this); }
+Ice &Ice::operator=(const Ice &other) {
+  (void)other;
+  return (*this);
+}
 
 AMateria *Ice::clone(void) const {
   Ice *clone;

@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:43:58 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/06 15:45:21 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/06 16:52:07 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ Cure::Cure(const Cure &other) { *this = other; }
 
 Cure::~Cure(void) {}
 
-Cure &Cure::operator=(const Cure &other) { return (*this); }
+Cure &Cure::operator=(const Cure &other) {
+  (void)other;
+  return (*this);
+}
 
 AMateria *Cure::clone(void) const {
   Cure *clone;
