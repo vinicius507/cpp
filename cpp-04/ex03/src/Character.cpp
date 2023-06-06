@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:55:00 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/06 16:45:44 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/06 16:58:24 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void Character::equip(AMateria *m) {
   for (int i = 0; i < INVENTORY_SIZE; i++) {
     if (this->inventory[i] == NULL) {
       std::cout << "* " << this->getName() << " equips the " << m->getType()
-                << " materia." << std::endl;
+                << " materia *" << std::endl;
       this->inventory[i] = m;
       return;
     }
