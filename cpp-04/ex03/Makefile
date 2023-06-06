@@ -6,7 +6,7 @@
 #    By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 15:51:24 by vgoncalv          #+#    #+#              #
-#    Updated: 2023/06/06 15:48:57 by vgoncalv         ###   ########.fr        #
+#    Updated: 2023/06/06 16:18:23 by vgoncalv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra -Wshadow --pedantic-errors -std=c++98
 SRC_DIR := ./src
 BUILD_DIR = ./build
 
-SRCS := main.cpp AMateria.cpp Ice.cpp Cure.cpp
+SRCS := main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp
 
 OBJS := $(addprefix $(BUILD_DIR)/,$(SRCS:%.cpp=%.o))
 SRCS := $(addprefix $(SRC_DIR)/,$(SRCS))
