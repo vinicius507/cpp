@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:55:00 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/06 16:58:24 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/07 17:44:20 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void Character::unequip(int idx) {
               << " cannot uneqip unexistent materia." << std::endl;
     return;
   }
-  std::cout << "* " << this->getName() << "unequips the "
+  std::cout << "* " << this->getName() << " unequips the "
             << this->inventory[idx]->getType() << " materia *" << std::endl;
   this->inventory[idx] = NULL;
 }
