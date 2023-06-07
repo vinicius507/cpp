@@ -23,6 +23,7 @@
         bear
         clang-tools_12
         gnumake
+        lldb
         llvmPackages_12.libcxxClang
         norminette
         valgrind
