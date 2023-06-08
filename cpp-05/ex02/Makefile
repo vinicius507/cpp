@@ -6,7 +6,7 @@
 #    By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/07 16:35:05 by vgoncalv          #+#    #+#              #
-#    Updated: 2023/06/08 15:37:23 by vgoncalv         ###   ########.fr        #
+#    Updated: 2023/06/08 15:54:26 by vgoncalv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra -Wshadow --pedantic-errors -std=c++98
 SRC_DIR := ./src
 BUILD_DIR = ./build
 
-SRCS := main.cpp Bureaucrat.cpp AForm.cpp
+SRCS := main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp
 
 OBJS := $(addprefix $(BUILD_DIR)/,$(SRCS:%.cpp=%.o))
 SRCS := $(addprefix $(SRC_DIR)/,$(SRCS))

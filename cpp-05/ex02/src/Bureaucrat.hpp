@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:35:51 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/08 17:05:36 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/08 17:06:44 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,13 @@ public:
    * @param f The AForm object to be signed.
    */
   void signForm(AForm &f) const;
+
+  /**
+   * @brief The Bureaucrat object tries to execute the AForm object.
+   *
+   * @param f The AForm object to be executed.
+   */
+  void executeForm(AForm &f) const;
 
   /**
    * @class GradeTooHighException

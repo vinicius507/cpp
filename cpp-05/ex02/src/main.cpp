@@ -6,12 +6,12 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:24:01 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/08 15:39:03 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/08 17:23:23 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <iomanip>
 #include <iostream>
 
@@ -55,4 +55,93 @@
               << " " #EXPR " == " #VALUE << std::endl;                         \
   } while (0)
 
-int main(void) { return (0); }
+static void testSignPresidentialPardonForm(void) {
+  Bureaucrat bob("Bob", 1);
+  PresidentialPardonForm form("Marvin");
+
+  bob.signForm(form);
+  EXPECT_TRUE(form.isSigned());
+}
+
+static void testSignPresidentialPardonFormGradeTooLow(void) {
+  Bureaucrat bob("Bob", 26);
+  PresidentialPardonForm form("Marvin");
+
+  bob.signForm(form);
+  EXPECT_FALSE(form.isSigned());
+}
+
+static void testExecutePresidentialPardonForm(void) {
+  Bureaucrat bob("Bob", 1);
+  PresidentialPardonForm form("Marvin");
+
+  bob.signForm(form);
+  form.execute(bob);
+  EXPECT_TRUE(true);
+}
+
+static void testExecutePresidentialPardonFormGradeTooLow(void) {
+  Bureaucrat bob("Bob", 10);
+  PresidentialPardonForm form("Marvin");
+
+  bob.signForm(form);
+  EXPECT_EXCEPTION(form.execute(bob), AForm::GradeTooLowException);
+}
+
+static void testExecutePresidentialPardonFormFormIsUnsigned(void) {
+  Bureaucrat bob("Bob", 1);
+  PresidentialPardonForm form("Marvin");
+
+  EXPECT_EXCEPTION(form.execute(bob), AForm::FormIsUnsigned);
+}
+
+static void testBureaucratExecutePresidentialPardonForm(void) {
+  Bureaucrat bob("Bob", 1);
+  PresidentialPardonForm form("Marvin");
+
+  bob.signForm(form);
+  bob.executeForm(form);
+  EXPECT_TRUE(true);
+}
+
+static void testBureaucratExecutePresidentialPardonFormGradeTooLow(void) {
+  Bureaucrat notBob("Not Bob", 8);
+  PresidentialPardonForm form("Marvin");
+
+  notBob.signForm(form);
+  notBob.executeForm(form);
+  EXPECT_FALSE(false);
+}
+
+static void testBureaucratExecutePresidentialPardonFormFormIsUnsigned(void) {
+  Bureaucrat notBob("Not Bob", 8);
+  PresidentialPardonForm form("Marvin");
+
+  notBob.executeForm(form);
+  EXPECT_FALSE(false);
+}
+
+static void testWeakBureaucratPresidentialPardonForm(void) {
+  Bureaucrat notBob("Not Bob", 150);
+  PresidentialPardonForm form("Marvin");
+
+  notBob.signForm(form);
+  notBob.executeForm(form);
+  EXPECT_FALSE(false);
+}
+
+int main(void) {
+  TEST(testSignPresidentialPardonForm);
+  TEST(testSignPresidentialPardonFormGradeTooLow);
+
+  TEST(testExecutePresidentialPardonForm);
+  TEST(testExecutePresidentialPardonFormGradeTooLow);
+  TEST(testExecutePresidentialPardonFormFormIsUnsigned);
+
+  TEST(testBureaucratExecutePresidentialPardonForm);
+  TEST(testBureaucratExecutePresidentialPardonFormGradeTooLow);
+  TEST(testBureaucratExecutePresidentialPardonFormFormIsUnsigned);
+
+  TEST(testWeakBureaucratPresidentialPardonForm);
+  return (0);
+}

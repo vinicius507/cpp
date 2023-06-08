@@ -79,12 +79,21 @@ void AForm::beSigned(const Bureaucrat &b) {
 
 bool AForm::isSigned(void) const { return (this->signedStatus); }
 
+void AForm::execute(const Bureaucrat &executor) const {
+  std::cerr << "Abstract method called." << std::endl;
+  (void)executor;
+}
+
 const char *AForm::GradeTooHighException::what(void) const throw() {
   return "the grade provided is too high";
 }
 
 const char *AForm::GradeTooLowException::what(void) const throw() {
   return "the grade provided is too low";
+}
+
+const char *AForm::FormIsUnsigned::what(void) const throw() {
+  return "the form is unsigned";
 }
 
 std::ostream &operator<<(std::ostream &out, const AForm &f) {

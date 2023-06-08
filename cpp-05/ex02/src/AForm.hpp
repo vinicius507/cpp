@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:07:01 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/08 15:37:50 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/08 17:08:03 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,13 @@ public:
   bool isSigned(void) const;
 
   /**
+   * @brief The AForm object is executed by a Bureaucrat object.
+   *
+   * @param executor The Bureaucrat object who will execute the AForm object.
+   */
+  virtual void execute(const Bureaucrat &executor) const;
+
+  /**
    * @class GradeTooHighException
    * @brief Exception for grade values higher than 1 (e.g. 0).
    */
@@ -148,6 +155,21 @@ public:
    * @brief Exception for grade values lower than 1 (e.g. 0).
    */
   class GradeTooLowException : public std::exception {
+  public:
+    /**
+     * @brief Get the description of the exception.
+     *
+     * @return A string describing the exception.
+     */
+    const char *what(void) const throw();
+  };
+
+  /**
+   * @class FormIsUnsigned
+   * @brief Exception thrown when a Bureaucrat tries to execute the AForm object
+   * and it is unsigned.
+   */
+  class FormIsUnsigned : public std::exception {
   public:
     /**
      * @brief Get the description of the exception.
