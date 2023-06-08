@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:35:51 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/07 18:47:57 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/08 14:06:13 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ public:
    *
    * @param name The name of the Bureaucrat.
    * @param grade The grade of the Bureaucrat.
+   * @throws Bureaucrat::GradeTooHighException If the grade is too high.
+   * @throws Bureaucrat::GradeTooLowException If the grade is too low.
    */
   explicit Bureaucrat(const std::string &name, int grade);
 
@@ -89,6 +91,8 @@ public:
    * @brief Sets the grade of the Bureaucrat object.
    *
    * @param grade The grade of the Bureaucrat object.
+   * @throws Bureaucrat::GradeTooHighException If the grade is too high.
+   * @throws Bureaucrat::GradeTooLowException If the grade is too low.
    */
   void setGrade(int _grade);
 
@@ -102,13 +106,31 @@ public:
    */
   void decrementGrade(void);
 
+  /**
+   * @class GradeTooHighException
+   * @brief Exception for grade values higher than 1 (e.g. 0).
+   */
   class GradeTooHighException : public std::exception {
   public:
+    /**
+     * @brief Get the description of the exception.
+     *
+     * @return A string describing the exception.
+     */
     const char *what(void) const throw();
   };
 
+  /**
+   * @class GradeTooLowException
+   * @brief Exception for grade values lower than 150 (e.g. 151).
+   */
   class GradeTooLowException : public std::exception {
   public:
+    /**
+     * @brief Get the description of the exception.
+     *
+     * @return A string describing the exception.
+     */
     const char *what(void) const throw();
   };
 
