@@ -6,12 +6,13 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:24:01 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/08 17:23:23 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/08 17:50:44 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include <iomanip>
 #include <iostream>
 
@@ -130,6 +131,81 @@ static void testWeakBureaucratPresidentialPardonForm(void) {
   EXPECT_FALSE(false);
 }
 
+static void testSignShrubberyCreationForm(void) {
+  Bureaucrat bob("Bob", 1);
+  ShrubberyCreationForm form("Marvin");
+
+  bob.signForm(form);
+  EXPECT_TRUE(form.isSigned());
+}
+
+static void testSignShrubberyCreationFormGradeTooLow(void) {
+  Bureaucrat bob("Bob", 146);
+  ShrubberyCreationForm form("Marvin");
+
+  bob.signForm(form);
+  EXPECT_FALSE(form.isSigned());
+}
+
+static void testExecuteShrubberyCreationForm(void) {
+  Bureaucrat bob("Bob", 1);
+  ShrubberyCreationForm form("Marvin");
+
+  bob.signForm(form);
+  form.execute(bob);
+  EXPECT_TRUE(true);
+}
+
+static void testExecuteShrubberyCreationFormGradeTooLow(void) {
+  Bureaucrat bob("Bob", 145);
+  ShrubberyCreationForm form("Marvin");
+
+  bob.signForm(form);
+  EXPECT_EXCEPTION(form.execute(bob), AForm::GradeTooLowException);
+}
+
+static void testExecuteShrubberyCreationFormFormIsUnsigned(void) {
+  Bureaucrat bob("Bob", 1);
+  ShrubberyCreationForm form("Marvin");
+
+  EXPECT_EXCEPTION(form.execute(bob), AForm::FormIsUnsigned);
+}
+
+static void testBureaucratExecuteShrubberyCreationForm(void) {
+  Bureaucrat bob("Bob", 1);
+  ShrubberyCreationForm form("Marvin");
+
+  bob.signForm(form);
+  bob.executeForm(form);
+  EXPECT_TRUE(true);
+}
+
+static void testBureaucratExecuteShrubberyCreationFormGradeTooLow(void) {
+  Bureaucrat notBob("Not Bob", 145);
+  ShrubberyCreationForm form("Marvin");
+
+  notBob.signForm(form);
+  notBob.executeForm(form);
+  EXPECT_FALSE(false);
+}
+
+static void testBureaucratExecuteShrubberyCreationFormFormIsUnsigned(void) {
+  Bureaucrat notBob("Not Bob", 8);
+  ShrubberyCreationForm form("Marvin");
+
+  notBob.executeForm(form);
+  EXPECT_FALSE(false);
+}
+
+static void testWeakBureaucratShrubberyCreationForm(void) {
+  Bureaucrat notBob("Not Bob", 150);
+  ShrubberyCreationForm form("Marvin");
+
+  notBob.signForm(form);
+  notBob.executeForm(form);
+  EXPECT_FALSE(false);
+}
+
 int main(void) {
   TEST(testSignPresidentialPardonForm);
   TEST(testSignPresidentialPardonFormGradeTooLow);
@@ -143,5 +219,18 @@ int main(void) {
   TEST(testBureaucratExecutePresidentialPardonFormFormIsUnsigned);
 
   TEST(testWeakBureaucratPresidentialPardonForm);
+
+  TEST(testSignShrubberyCreationForm);
+  TEST(testSignShrubberyCreationFormGradeTooLow);
+
+  TEST(testExecuteShrubberyCreationForm);
+  TEST(testExecuteShrubberyCreationFormGradeTooLow);
+  TEST(testExecuteShrubberyCreationFormFormIsUnsigned);
+
+  TEST(testBureaucratExecuteShrubberyCreationForm);
+  TEST(testBureaucratExecuteShrubberyCreationFormGradeTooLow);
+  TEST(testBureaucratExecuteShrubberyCreationFormFormIsUnsigned);
+
+  TEST(testWeakBureaucratShrubberyCreationForm);
   return (0);
 }
