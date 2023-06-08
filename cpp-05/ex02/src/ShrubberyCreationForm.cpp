@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:26:13 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/08 17:46:40 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/08 17:57:00 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
   if (executor.getGrade() > this->getRequiredExecutionGrade()) {
     throw AForm::GradeTooLowException();
   }
-  fout.open(target + "_shrubbery");
+  fout.open((target + "_shrubbery").c_str());
   if (fout.fail()) {
     throw ShrubberyCreationForm::ShrubberyCreationError();
   }
