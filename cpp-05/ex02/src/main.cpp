@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:24:01 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/09 14:52:38 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/09 14:53:43 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -267,7 +267,7 @@ static void testBureaucratExecuteRobotomyRequestForm50Percent(void) {
 }
 
 static void testBureaucratExecuteRobotomyRequestFormGradeTooLow(void) {
-  Bureaucrat notBob("Not Bob", 8);
+  Bureaucrat notBob("Not Bob", 46);
   RobotomyRequestForm form("Marvin");
 
   notBob.signForm(form);
