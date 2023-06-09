@@ -6,7 +6,7 @@
 #    By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/07 16:35:05 by vgoncalv          #+#    #+#              #
-#    Updated: 2023/06/08 17:45:53 by vgoncalv         ###   ########.fr        #
+#    Updated: 2023/06/09 14:46:40 by vgoncalv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC_DIR := ./src
 BUILD_DIR = ./build
 
 SRCS := main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp \
-				ShrubberyCreationForm.cpp
+				ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
 
 OBJS := $(addprefix $(BUILD_DIR)/,$(SRCS:%.cpp=%.o))
 SRCS := $(addprefix $(SRC_DIR)/,$(SRCS))
