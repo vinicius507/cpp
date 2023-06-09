@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:24:01 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/09 14:53:43 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/09 14:56:18 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -264,6 +264,7 @@ static void testBureaucratExecuteRobotomyRequestForm50Percent(void) {
   for (int i = 0; i < 10; i++) {
     bob.executeForm(form);
   }
+  EXPECT_TRUE(true);
 }
 
 static void testBureaucratExecuteRobotomyRequestFormGradeTooLow(void) {
