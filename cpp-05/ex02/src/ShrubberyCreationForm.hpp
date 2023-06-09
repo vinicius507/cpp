@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:25:31 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/08 17:44:15 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/09 14:54:36 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
    * @brief Default constructor for the ShrubberyCreationForm class.
    *
    * Constructs a ShrubberyCreationForm for an unnamed target and default
-   * required grades of 25, for signing, and 5, for execution.
+   * required grades of 145, for signing, and 137, for execution.
    */
   ShrubberyCreationForm(void);
 
