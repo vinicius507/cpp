@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 15:39:32 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/08 17:22:35 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/09 14:31:58 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ public:
    */
   ~PresidentialPardonForm(void);
 
+  /**
+   * @brief Assignment operator for the PresidentialPardonForm class.
+   *
+   * @param other The PresidentialPardonForm object to be assigned.
+   * @return A reference to the PresidentialPardonForm object.
+   */
   PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
 
   /**
