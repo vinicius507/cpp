@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:24:01 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/09 14:50:16 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/09 14:52:38 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,7 +216,7 @@ static void testSignRobotomyRequestForm(void) {
 }
 
 static void testSignRobotomyRequestFormGradeTooLow(void) {
-  Bureaucrat bob("Bob", 26);
+  Bureaucrat bob("Bob", 73);
   RobotomyRequestForm form("Marvin");
 
   bob.signForm(form);
@@ -233,7 +233,7 @@ static void testExecuteRobotomyRequestForm(void) {
 }
 
 static void testExecuteRobotomyRequestFormGradeTooLow(void) {
-  Bureaucrat bob("Bob", 10);
+  Bureaucrat bob("Bob", 46);
   RobotomyRequestForm form("Marvin");
 
   bob.signForm(form);
