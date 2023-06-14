@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:35:50 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/14 18:37:25 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/14 18:43:39 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ void ScalarConverter::convert(const std::string &literal) {
   case (INT):
     convertInt(literal);
     break;
+  case (CHAR):
+    convertChar(literal);
+    break;
   default:
     throw InvalidLiteralException();
     break;
@@ -39,10 +42,20 @@ void ScalarConverter::convert(const std::string &literal) {
 }
 
 int ScalarConverter::getScalarType(const std::string &literal) {
+  if (isCharLiteral(literal)) {
+    return (CHAR);
+  }
   if (isIntLiteral(literal)) {
     return (INT);
   }
   return (INVALID);
+}
+
+bool ScalarConverter::isCharLiteral(const std::string &literal) {
+  if (literal.length() != 3) {
+    return (false);
+  }
+  return (literal.front() == '\'' && literal.back() == '\'');
 }
 
 bool ScalarConverter::isIntLiteral(const std::string &literal) {
@@ -50,6 +63,16 @@ bool ScalarConverter::isIntLiteral(const std::string &literal) {
   std::istringstream ss(literal);
 
   return ((ss >> i) && (ss.eof()));
+}
+
+void ScalarConverter::convertChar(const std::string &literal) {
+  char c;
+
+  c = literal[1];
+  std::cout << "char: " << displayChar(c) << std::endl
+            << "int: " << static_cast<int>(c) << std::endl
+            << "float: " << static_cast<float>(c) << ".0f" << std::endl
+            << "double: " << static_cast<double>(c) << ".0" << std::endl;
 }
 
 void ScalarConverter::convertInt(const std::string &literal) {

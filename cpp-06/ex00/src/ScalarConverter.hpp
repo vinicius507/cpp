@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:24:42 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/14 18:34:20 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/14 18:39:54 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,13 @@ private:
 
   static int getScalarType(const std::string &literal);
 
+  static bool isCharLiteral(const std::string &literal);
+
   static bool isIntLiteral(const std::string &literal);
 
   static void convertInt(const std::string &literal);
+
+  static void convertChar(const std::string &literal);
 
   static std::string displayChar(int c);
 
