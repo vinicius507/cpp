@@ -6,11 +6,11 @@
 #    By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/09 15:02:36 by vgoncalv          #+#    #+#              #
-#    Updated: 2023/06/14 15:39:35 by vgoncalv         ###   ########.fr        #
+#    Updated: 2023/06/14 18:24:28 by vgoncalv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=scalar
+NAME=convert
 
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
