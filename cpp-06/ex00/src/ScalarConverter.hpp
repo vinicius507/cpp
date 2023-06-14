@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:24:42 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/14 16:43:43 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/14 18:27:09 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ private:
 
   static std::string displayChar(int c);
 
-  class InvalidLiteralException : std::exception {
+  class InvalidLiteralException : public std::exception {
   public:
     const char *what(void) const throw();
   };
