@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:35:50 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/14 18:22:07 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/14 18:37:25 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,23 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other) {
 }
 
 void ScalarConverter::convert(const std::string &literal) {
-  if (isIntLiteral(literal)) {
+  int literalType = getScalarType(literal);
+
+  switch (literalType) {
+  case (INT):
     convertInt(literal);
-    return;
+    break;
+  default:
+    throw InvalidLiteralException();
+    break;
   }
-  throw InvalidLiteralException();
+}
+
+int ScalarConverter::getScalarType(const std::string &literal) {
+  if (isIntLiteral(literal)) {
+    return (INT);
+  }
+  return (INVALID);
 }
 
 bool ScalarConverter::isIntLiteral(const std::string &literal) {

@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:24:42 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/14 18:27:09 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/14 18:34:20 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,22 @@ private:
 
   ScalarConverter &operator=(const ScalarConverter &other);
 
+  static int getScalarType(const std::string &literal);
+
   static bool isIntLiteral(const std::string &literal);
 
   static void convertInt(const std::string &literal);
 
   static std::string displayChar(int c);
+
+  enum ScalarTypes {
+    INVALID = -1,
+    CHAR,
+    INT,
+    FLOAT,
+    DOUBLE,
+    SCALARTYPES_COUNT,
+  };
 
   class InvalidLiteralException : public std::exception {
   public:
