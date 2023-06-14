@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:35:50 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/14 18:43:39 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/14 18:44:56 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ void ScalarConverter::convertInt(const std::string &literal) {
   ss >> i;
   std::cout << "char: " << displayChar(i) << std::endl
             << "int: " << i << std::endl
-            << "float: " << i << ".0f" << std::endl
-            << "double: " << i << ".0" << std::endl;
+            << "float: " << static_cast<float>(i) << ".0f" << std::endl
+            << "double: " << static_cast<double>(i) << ".0" << std::endl;
 }
 
 std::string ScalarConverter::displayChar(int c) {
