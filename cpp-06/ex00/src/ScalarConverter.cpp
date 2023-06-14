@@ -6,12 +6,11 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:35:50 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/14 17:35:01 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/14 18:22:07 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include <cctype>
 #include <iostream>
 #include <sstream>
 
@@ -29,7 +28,9 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other) {
 void ScalarConverter::convert(const std::string &literal) {
   if (isIntLiteral(literal)) {
     convertInt(literal);
+    return;
   }
+  throw InvalidLiteralException();
 }
 
 bool ScalarConverter::isIntLiteral(const std::string &literal) {
