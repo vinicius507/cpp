@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 15:03:17 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/14 18:19:23 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/14 18:24:18 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ int main(int argc, char **argv) {
     usage(*argv);
     return (1);
   }
-  ScalarConverter::convert(argv[1]);
+  try {
+    ScalarConverter::convert(argv[1]);
+  } catch (std::exception &e) {
+    std::cerr << e.what() << std::endl;
+  }
   return (0);
 }
