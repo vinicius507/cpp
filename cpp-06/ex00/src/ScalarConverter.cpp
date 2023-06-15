@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:35:50 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/15 08:34:27 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/15 09:22:11 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ void ScalarConverter::convert(const std::string &literal) {
   case (CHAR):
     convertChar(literal);
     break;
+  case (FLOAT):
+    convertFloat(literal);
+    break;
   case (DOUBLE):
     convertDouble(literal);
     break;
@@ -50,6 +53,9 @@ int ScalarConverter::getScalarType(const std::string &literal) {
   }
   if (isIntLiteral(literal)) {
     return (INT);
+  }
+  if (isFloatLiteral(literal)) {
+    return (FLOAT);
   }
   if (isDoubleLiteral(literal)) {
     return (DOUBLE);
@@ -69,6 +75,13 @@ bool ScalarConverter::isIntLiteral(const std::string &literal) {
   std::istringstream ss(literal);
 
   return ((ss >> i) && (ss.eof()));
+}
+
+bool ScalarConverter::isFloatLiteral(const std::string &literal) {
+  float f;
+  std::stringstream ss(literal.substr(0, literal.length() - 1));
+
+  return ((ss >> f) && (ss.eof()) && (literal.back() == 'f'));
 }
 
 bool ScalarConverter::isDoubleLiteral(const std::string &literal) {
@@ -97,6 +110,17 @@ void ScalarConverter::convertInt(const std::string &literal) {
             << "int: " << i << std::endl
             << "float: " << static_cast<float>(i) << ".0f" << std::endl
             << "double: " << static_cast<double>(i) << ".0" << std::endl;
+}
+
+void ScalarConverter::convertFloat(const std::string &literal) {
+  float f;
+  std::istringstream ss(literal.substr(0, literal.length() - 1));
+
+  ss >> f;
+  std::cout << "char: " << displayChar(f) << std::endl
+            << "int: " << static_cast<int>(f) << std::endl
+            << "float: " << f << "f" << std::endl
+            << "double: " << static_cast<double>(f) << std::endl;
 }
 
 void ScalarConverter::convertDouble(const std::string &literal) {

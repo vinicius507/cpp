@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:24:42 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/15 08:33:16 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/15 09:16:00 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,15 @@ private:
 
   static bool isIntLiteral(const std::string &literal);
 
+  static bool isFloatLiteral(const std::string &literal);
+
   static bool isDoubleLiteral(const std::string &literal);
 
   static void convertInt(const std::string &literal);
 
   static void convertChar(const std::string &literal);
+
+  static void convertFloat(const std::string &literal);
 
   static void convertDouble(const std::string &literal);
 
