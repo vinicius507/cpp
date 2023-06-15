@@ -6,11 +6,11 @@
 #    By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 19:35:21 by vgoncalv          #+#    #+#              #
-#    Updated: 2023/05/30 16:27:05 by vgoncalv         ###   ########.fr        #
+#    Updated: 2023/06/15 15:20:46 by vgoncalv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=frag
+NAME=diamond
 
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -Wshadow --pedantic-errors -std=c++98
