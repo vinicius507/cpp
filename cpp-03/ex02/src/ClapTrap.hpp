@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 19:40:19 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/29 18:22:30 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:42:49 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,7 +177,7 @@ public:
    */
   bool isDead(void) const;
 
-private:
+protected:
   const std::string name;    /**< The name of the ClapTrap. */
   unsigned int hitPoints;    /**< The hit points of the Clap Trap. */
   unsigned int energyPoints; /**< The energy points of the Clap Trap. */
