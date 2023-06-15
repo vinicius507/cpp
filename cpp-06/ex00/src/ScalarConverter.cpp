@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:35:50 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/15 09:54:05 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/15 11:02:32 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,23 +118,37 @@ void ScalarConverter::convertInt(const std::string &literal) {
 void ScalarConverter::convertFloat(const std::string &literal) {
   float f;
   std::istringstream ss(literal.substr(0, literal.length() - 1));
+  bool isNan = (literal.find("nanf") != std::string::npos);
+  bool isInf = (literal.find("inff") != std::string::npos);
 
   ss >> f;
-  std::cout << "char: " << displayChar(static_cast<int>(f)) << std::endl
-            << "int: " << static_cast<int>(f) << std::endl
-            << "float: " << f << "f" << std::endl
+  if (isNan || isInf) {
+    std::cout << "char: Impossible" << std::endl
+              << "int: Impossible" << std::endl;
+  } else {
+    std::cout << "char: " << displayChar(static_cast<int>(f)) << std::endl
+              << "int: " << static_cast<int>(f) << std::endl;
+  }
+  std::cout << "float: " << f << "f" << std::endl
             << "double: " << static_cast<double>(f) << std::endl;
 }
 
 void ScalarConverter::convertDouble(const std::string &literal) {
   double d;
   std::istringstream ss(literal);
+  bool isNan = (literal.find("nanf") != std::string::npos);
+  bool isInf = (literal.find("inff") != std::string::npos);
 
   ss >> d;
-  std::cout << "char: " << displayChar(static_cast<int>(d)) << std::endl
-            << "int: " << static_cast<int>(d) << std::endl
-            << "float: " << static_cast<float>(d) << "f" << std::endl
-            << "double: " << d << std::endl;
+  if (isNan || isInf) {
+    std::cout << "char: Impossible" << std::endl
+              << "int: Impossible" << std::endl;
+  } else {
+    std::cout << "char: " << displayChar(static_cast<int>(d)) << std::endl
+              << "int: " << static_cast<int>(d) << std::endl;
+  }
+  std::cout << "float: " << d << "f" << std::endl
+            << "double: " << static_cast<double>(d) << std::endl;
 }
 
 std::string ScalarConverter::displayChar(int c) {
