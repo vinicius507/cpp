@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:35:50 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/15 09:42:05 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/15 09:51:18 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other) {
 
 void ScalarConverter::convert(const std::string &literal) {
   int literalType = getScalarType(literal);
+
+  std::cout.setf(std::ios::fixed | std::ios::showpoint);
+  std::cout.precision(1);
 
   switch (literalType) {
   case (INT):
@@ -97,8 +100,8 @@ void ScalarConverter::convertChar(const std::string &literal) {
   std::cout << "char: " << (std::isprint(c) ? literal : "Non displayable")
             << std::endl
             << "int: " << static_cast<int>(c) << std::endl
-            << "float: " << static_cast<float>(c) << ".0f" << std::endl
-            << "double: " << static_cast<double>(c) << ".0" << std::endl;
+            << "float: " << static_cast<float>(c) << "f" << std::endl
+            << "double: " << static_cast<double>(c) << "" << std::endl;
 }
 
 void ScalarConverter::convertInt(const std::string &literal) {
@@ -108,8 +111,8 @@ void ScalarConverter::convertInt(const std::string &literal) {
   ss >> i;
   std::cout << "char: " << displayChar(i) << std::endl
             << "int: " << i << std::endl
-            << "float: " << static_cast<float>(i) << ".0f" << std::endl
-            << "double: " << static_cast<double>(i) << ".0" << std::endl;
+            << "float: " << static_cast<float>(i) << "f" << std::endl
+            << "double: " << static_cast<double>(i) << "" << std::endl;
 }
 
 void ScalarConverter::convertFloat(const std::string &literal) {
