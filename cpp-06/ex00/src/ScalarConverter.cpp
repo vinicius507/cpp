@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:35:50 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/15 13:03:59 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:07:00 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,12 +134,10 @@ void ScalarConverter::convertFloat(const std::string &literal) {
 }
 
 void ScalarConverter::convertDouble(const std::string &literal) {
-  double d;
-  std::istringstream ss(literal);
+  double d = std::strtod(literal.c_str(), NULL);
   bool isNan = (literal.find("nanf") != std::string::npos);
   bool isInf = (literal.find("inff") != std::string::npos);
 
-  ss >> d;
   if (isNan || isInf || doubleOverflowsInt(d)) {
     std::cout << "char: Impossible" << std::endl
               << "int: Impossible" << std::endl;
