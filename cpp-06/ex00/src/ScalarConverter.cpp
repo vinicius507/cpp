@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:35:50 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/15 09:51:18 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/15 09:53:30 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void ScalarConverter::convertInt(const std::string &literal) {
   std::istringstream ss(literal);
 
   ss >> i;
-  std::cout << "char: " << displayChar(i) << std::endl
+  std::cout << "char: " << displayChar(static_cast<int>(i)) << std::endl
             << "int: " << i << std::endl
             << "float: " << static_cast<float>(i) << "f" << std::endl
             << "double: " << static_cast<double>(i) << "" << std::endl;
@@ -120,7 +120,7 @@ void ScalarConverter::convertFloat(const std::string &literal) {
   std::istringstream ss(literal.substr(0, literal.length() - 1));
 
   ss >> f;
-  std::cout << "char: " << displayChar(f) << std::endl
+  std::cout << "char: " << displayChar(static_cast<int>(f)) << std::endl
             << "int: " << static_cast<int>(f) << std::endl
             << "float: " << f << "f" << std::endl
             << "double: " << static_cast<double>(f) << std::endl;
@@ -131,7 +131,7 @@ void ScalarConverter::convertDouble(const std::string &literal) {
   std::istringstream ss(literal);
 
   ss >> i;
-  std::cout << "char: " << displayChar(i) << std::endl
+  std::cout << "char: " << displayChar(static_cast<int>(i)) << std::endl
             << "int: " << static_cast<int>(i) << std::endl
             << "float: " << static_cast<float>(i) << "f" << std::endl
             << "double: " << i << std::endl;
