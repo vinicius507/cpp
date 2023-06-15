@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:24:42 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/15 09:16:00 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/15 11:42:07 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@ private:
   static void convertDouble(const std::string &literal);
 
   static std::string displayChar(int c);
+
+  static bool floatOverflowsInt(float f);
+
+  static bool doubleOverflowsInt(double d);
 
   enum ScalarTypes {
     INVALID = -1,

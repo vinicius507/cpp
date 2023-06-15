@@ -6,12 +6,14 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:35:50 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/15 11:02:32 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:03:59 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+#include <cstdlib>
 #include <iostream>
+#include <limits>
 #include <sstream>
 
 ScalarConverter::ScalarConverter(void) {}
@@ -116,13 +118,11 @@ void ScalarConverter::convertInt(const std::string &literal) {
 }
 
 void ScalarConverter::convertFloat(const std::string &literal) {
-  float f;
-  std::istringstream ss(literal.substr(0, literal.length() - 1));
+  float f = std::strtof(literal.c_str(), NULL);
   bool isNan = (literal.find("nanf") != std::string::npos);
   bool isInf = (literal.find("inff") != std::string::npos);
 
-  ss >> f;
-  if (isNan || isInf) {
+  if (isNan || isInf || floatOverflowsInt(f)) {
     std::cout << "char: Impossible" << std::endl
               << "int: Impossible" << std::endl;
   } else {
@@ -140,7 +140,7 @@ void ScalarConverter::convertDouble(const std::string &literal) {
   bool isInf = (literal.find("inff") != std::string::npos);
 
   ss >> d;
-  if (isNan || isInf) {
+  if (isNan || isInf || doubleOverflowsInt(d)) {
     std::cout << "char: Impossible" << std::endl
               << "int: Impossible" << std::endl;
   } else {
@@ -163,6 +163,24 @@ std::string ScalarConverter::displayChar(int c) {
   }
   ss << "\'" << static_cast<char>(c) << "\'";
   return (ss.str());
+}
+
+bool ScalarConverter::floatOverflowsInt(float f) {
+  float intMax =
+      2.0f * static_cast<float>((std::numeric_limits<int>::max() / 2) + 1);
+
+  if (f < intMax && (f - std::numeric_limits<int>::min()) > -1.0f)
+    return (false);
+  return (true);
+}
+
+bool ScalarConverter::doubleOverflowsInt(double d) {
+  double intMax =
+      2.0 * static_cast<double>((std::numeric_limits<int>::max() / 2) + 1);
+
+  if (d < intMax && (d - std::numeric_limits<int>::min()) > -1.0)
+    return (false);
+  return (true);
 }
 
 const char *ScalarConverter::InvalidLiteralException::what(void) const throw() {
