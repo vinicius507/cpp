@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:35:50 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/15 09:22:11 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/15 09:24:10 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,11 @@ bool ScalarConverter::isDoubleLiteral(const std::string &literal) {
 }
 
 void ScalarConverter::convertChar(const std::string &literal) {
-  char c;
+  char c = literal[1];
 
-  c = literal[1];
-  std::cout << "char: " << displayChar(c) << std::endl
+  std::cout << "char: "
+            << (std::isprint(c) ? std::string(1, c) : "Non displayable")
+            << std::endl
             << "int: " << static_cast<int>(c) << std::endl
             << "float: " << static_cast<float>(c) << ".0f" << std::endl
             << "double: " << static_cast<double>(c) << ".0" << std::endl;
