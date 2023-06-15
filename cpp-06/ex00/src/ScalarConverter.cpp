@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:35:50 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/14 18:44:56 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/15 08:34:27 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ void ScalarConverter::convert(const std::string &literal) {
   case (CHAR):
     convertChar(literal);
     break;
+  case (DOUBLE):
+    convertDouble(literal);
+    break;
   default:
     throw InvalidLiteralException();
     break;
@@ -47,6 +50,9 @@ int ScalarConverter::getScalarType(const std::string &literal) {
   }
   if (isIntLiteral(literal)) {
     return (INT);
+  }
+  if (isDoubleLiteral(literal)) {
+    return (DOUBLE);
   }
   return (INVALID);
 }
@@ -63,6 +69,13 @@ bool ScalarConverter::isIntLiteral(const std::string &literal) {
   std::istringstream ss(literal);
 
   return ((ss >> i) && (ss.eof()));
+}
+
+bool ScalarConverter::isDoubleLiteral(const std::string &literal) {
+  double d;
+  std::istringstream ss(literal);
+
+  return ((ss >> d) && (ss.eof()));
 }
 
 void ScalarConverter::convertChar(const std::string &literal) {
@@ -84,6 +97,17 @@ void ScalarConverter::convertInt(const std::string &literal) {
             << "int: " << i << std::endl
             << "float: " << static_cast<float>(i) << ".0f" << std::endl
             << "double: " << static_cast<double>(i) << ".0" << std::endl;
+}
+
+void ScalarConverter::convertDouble(const std::string &literal) {
+  double i;
+  std::istringstream ss(literal);
+
+  ss >> i;
+  std::cout << "char: " << displayChar(i) << std::endl
+            << "int: " << static_cast<int>(i) << std::endl
+            << "float: " << static_cast<float>(i) << "f" << std::endl
+            << "double: " << i << std::endl;
 }
 
 std::string ScalarConverter::displayChar(int c) {
