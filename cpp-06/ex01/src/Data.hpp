@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 15:39:31 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/15 15:55:28 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/16 16:19:37 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,17 @@
 
 #include <iostream>
 
+/**
+ * @class Data
+ * @brief Data structure for a Person's record.
+ */
 struct Data {
-  int i;
-  int j;
+  std::string name;
+  int age;
 };
 
 std::ostream &operator<<(std::ostream &out, Data &data);
+
+bool operator==(Data &lhs, Data &rhs);
 
 #endif // !DATA_HPP
