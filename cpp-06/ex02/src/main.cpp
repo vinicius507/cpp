@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:12:32 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/15 17:33:19 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/16 16:51:49 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ int main(void) {
     identify(b);
     delete b;
   }
+  identify(reinterpret_cast<Base *>(NULL));
   return (0);
 }
