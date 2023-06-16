@@ -18,6 +18,11 @@
 #include <ctime>
 #include <iostream>
 
+/**
+ * @brief Generates an object derived from the Base class (one of A, B or C).
+ *
+ * @return A pointer to an object derived from Base.
+ */
 Base *generate(void) {
   int _class;
   Base *randomObj;
@@ -40,6 +45,12 @@ Base *generate(void) {
   return (randomObj);
 }
 
+/**
+ * @brief Tries to identify whether a pointer to a Base object is from A, B or
+ * C.
+ *
+ * @param b A pointer to an object derived from Base.
+ */
 void identify(Base *b) {
   if (dynamic_cast<A *>(b) != NULL) {
     std::cout << "A" << std::endl;
