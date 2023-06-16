@@ -26,22 +26,25 @@
 Base *generate(void) {
   int _class;
   Base *randomObj;
+  std::string subclasses("ABC");
 
   _class = rand() % 3;
   switch (_class) {
-  case 0:
+  case (0):
     randomObj = new A();
     break;
-  case 1:
+  case (1):
     randomObj = new B();
     break;
-  case 2:
+  case (2):
     randomObj = new C();
     break;
   default:
     randomObj = NULL;
     break;
   }
+  std::cout << "Generated an object of the " << subclasses[_class] << " type."
+            << std::endl;
   return (randomObj);
 }
 
