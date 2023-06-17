@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:13:59 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 16:49:20 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/17 16:51:13 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,9 @@ int Span::longestSpan(void) const {
 }
 
 const char *Span::SpanIsFullException::what(void) const throw() {
-  return ("The Span is full.");
+  return ("The Span is full");
+}
+
+const char *Span::NoCapacityException::what(void) const throw() {
+  return ("The Span has no capacity for the provided numbers");
 }

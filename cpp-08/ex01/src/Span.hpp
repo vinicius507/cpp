@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 13:39:15 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 16:26:30 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/17 16:51:51 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ public:
       throw SpanIsFullException();
     }
     if (vacantNums < numbers.size()) {
-      throw "Err";
+      throw NoCapacityException();
     }
     for (it = numbers.begin(); it != numbers.end(); it++) {
       this->_numbers.push_back(*it);
@@ -66,6 +66,11 @@ public:
   int longestSpan(void) const;
 
   class SpanIsFullException : public std::exception {
+  public:
+    const char *what(void) const throw();
+  };
+
+  class NoCapacityException : public std::exception {
   public:
     const char *what(void) const throw();
   };
