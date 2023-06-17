@@ -63,7 +63,8 @@ static void testIntVectorOutOfRangeException(void) {
   int intArr[1] = {0};
   std::vector<int> intVec(intArr, intArr + (sizeof(intArr) / sizeof(int)));
 
-  EXPECT_EXCEPTION(easyFind(intVec, 42), std::out_of_range);
+  EXPECT_EXCEPTION((void)easyFind(intVec, 42), std::out_of_range);
+}
 }
 
 int main(void) {
