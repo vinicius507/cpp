@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 13:39:15 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 17:10:29 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/17 17:15:37 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,23 +80,24 @@ public:
    * @brief Template function to add multiple numbers at once to the Span
    * object.
    *
-   * @tparam T The type of the Container holding the numbers.
-   * @param numbers The STL Containers which holds the numbers.
-   * @throw SpanIsFullException If the Span is already full.
-   * @throw NoCapacityException If there is not enough capacity to add all the
+   * @tparam I The type of the input iterator representing the range
+   * of numbers.
+   * @param begin Iterator pointing to the beginning of the range.
+   * @param end Iterator pointing to the end of the range.
+   * @throw SpanIsFullException if the Span is already full.
+   * @throw NoCapacityException if there is not enough capacity to add all the
    * numbers.
    */
-  template <class T> void addNumbers(T &numbers) {
-    typename T::iterator it;
+  template <typename I> void addNumbers(I begin, I end) {
     size_t vacantNums = this->capacity() - this->size();
 
     if (this->isFull()) {
       throw SpanIsFullException();
     }
-    if (vacantNums < numbers.size()) {
+    if (vacantNums < static_cast<size_t>(std::distance(begin, end))) {
       throw NoCapacityException();
     }
-    for (it = numbers.begin(); it != numbers.end(); it++) {
+    for (I it = begin; it != end; it++) {
       this->_numbers.push_back(*it);
     }
   };

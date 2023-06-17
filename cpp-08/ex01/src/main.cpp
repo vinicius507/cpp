@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:44:49 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 16:57:48 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/17 17:14:36 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void testLargeSpan(void) {
   int intArr[12] = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048};
   std::vector<int> vec(intArr, intArr + (sizeof(intArr) / sizeof(int)));
 
-  sp.addNumbers(vec);
+  sp.addNumbers(vec.begin(), vec.end());
 
   EXPECT(sp.shortestSpan(), 1);
   EXPECT(sp.longestSpan(), 1024);
@@ -91,14 +91,16 @@ static void testSpanAddNumbersIsFullException(void) {
   Span sp;
   std::vector<int> vec(10, 0);
 
-  EXPECT_EXCEPTION(sp.addNumbers(vec), Span::SpanIsFullException);
+  EXPECT_EXCEPTION(sp.addNumbers(vec.begin(), vec.end()),
+                   Span::SpanIsFullException);
 }
 
 static void testSpanAddNumbersNoCapacity(void) {
   Span sp(5);
   std::vector<int> vec(10, 0);
 
-  EXPECT_EXCEPTION(sp.addNumbers(vec), Span::NoCapacityException);
+  EXPECT_EXCEPTION(sp.addNumbers(vec.begin(), vec.end()),
+                   Span::NoCapacityException);
 }
 
 static void testShortestSpanNotEnoughValuesException(void) {
