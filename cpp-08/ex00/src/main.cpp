@@ -6,11 +6,12 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:27:32 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 13:15:32 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/17 13:20:00 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
+#include <deque>
 #include <exception>
 #include <iostream>
 #include <iterator>
@@ -86,10 +87,29 @@ static void testIntListOutOfRangeException(void) {
   EXPECT_EXCEPTION((void)easyFind(intList, 1), std::out_of_range);
 }
 
+static void testIntQueueFind42(void) {
+  int intArr[4] = {0, 10, 42, 512};
+  std::deque<int> intQueue(intArr, intArr + (sizeof(intArr) / sizeof(int)));
+  std::deque<int>::iterator ft;
+
+  ft = easyFind(intQueue, 42);
+
+  EXPECT(*ft, 42);
+}
+
+static void testIntQuequeOutOfRangeException(void) {
+  int intArr[4] = {0, 10, 42, 512};
+  std::deque<int> intQueue(intArr, intArr + (sizeof(intArr) / sizeof(int)));
+
+  EXPECT_EXCEPTION((void)easyFind(intQueue, 1), std::out_of_range);
+}
+
 int main(void) {
   TEST(testIntVectorFind42());
   TEST(testIntVectorOutOfRangeException());
   TEST(testIntListFind10());
   TEST(testIntListOutOfRangeException());
+  TEST(testIntQueueFind42());
+  TEST(testIntQuequeOutOfRangeException());
   return (0);
 }
