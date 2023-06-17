@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 13:39:15 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 16:11:35 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/17 16:21:26 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,18 @@ public:
   Span &operator=(const Span &other);
 
   void addNumber(int n);
+
+  template <class T> void addNumbers(T &numbers) {
+    typename T::iterator it;
+    size_t vacantNums = this->capacity() - this->size();
+
+    if (vacantNums < numbers.size()) {
+      throw "Err";
+    }
+    for (it = numbers.begin(); it != numbers.end(); it++) {
+      this->_numbers.push_back(*it);
+    }
+  };
 
   size_t capacity(void) const;
 

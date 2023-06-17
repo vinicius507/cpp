@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:44:49 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 15:55:24 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/17 16:21:22 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,20 @@ static void testShortSpan(void) {
   EXPECT(sp.longestSpan(), 9);
 }
 
+static void testLargeSpan(void) {
+  Span sp(12);
+  int intArr[12] = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048};
+  std::vector<int> vec(intArr, intArr + (sizeof(intArr) / sizeof(int)));
+
+  sp.addNumbers(vec);
+
+  EXPECT(sp.shortestSpan(), 1);
+  EXPECT(sp.longestSpan(), 1024);
+}
+
 int main(void) {
   TEST(testSubject());
   TEST(testShortSpan());
+  TEST(testLargeSpan());
   return (0);
 }
