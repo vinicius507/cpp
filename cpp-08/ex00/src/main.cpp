@@ -6,13 +6,15 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:27:32 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 12:56:34 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/17 13:15:32 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
 #include <exception>
 #include <iostream>
+#include <iterator>
+#include <list>
 #include <stdexcept>
 #include <vector>
 
@@ -65,10 +67,29 @@ static void testIntVectorOutOfRangeException(void) {
 
   EXPECT_EXCEPTION((void)easyFind(intVec, 42), std::out_of_range);
 }
+
+static void testIntListFind10(void) {
+  int intArr[4] = {0, 10, 42, 512};
+  std::list<int> intList(intArr, intArr + (sizeof(intArr) / sizeof(int)));
+  std::list<int>::iterator ten;
+
+  ten = easyFind(intList, 10);
+
+  EXPECT(*ten, 10);
+}
+
+static void testIntListOutOfRangeException(void) {
+  int intArr[4] = {0, 10, 42, 512};
+  std::list<int> intList(intArr, intArr + (sizeof(intArr) / sizeof(int)));
+  std::list<int>::iterator ten;
+
+  EXPECT_EXCEPTION((void)easyFind(intList, 1), std::out_of_range);
 }
 
 int main(void) {
   TEST(testIntVectorFind42());
   TEST(testIntVectorOutOfRangeException());
+  TEST(testIntListFind10());
+  TEST(testIntListOutOfRangeException());
   return (0);
 }
