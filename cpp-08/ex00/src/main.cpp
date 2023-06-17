@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:27:32 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 13:20:00 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/17 13:30:32 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,22 @@ static void testIntQuequeOutOfRangeException(void) {
   EXPECT_EXCEPTION((void)easyFind(intQueue, 1), std::out_of_range);
 }
 
+static void testStringFindChar(void) {
+  std::string str("Hello, 42!");
+  std::string::iterator ft;
+
+  ft = easyFind(str, '4');
+
+  EXPECT(*ft, '4');
+}
+
+static void testStringOutOfRangeException(void) {
+  std::string str("Hello, 42!");
+  std::string::iterator ft;
+
+  EXPECT_EXCEPTION((void)easyFind(str, 'F'), std::out_of_range);
+}
+
 int main(void) {
   TEST(testIntVectorFind42());
   TEST(testIntVectorOutOfRangeException());
@@ -111,5 +127,7 @@ int main(void) {
   TEST(testIntListOutOfRangeException());
   TEST(testIntQueueFind42());
   TEST(testIntQuequeOutOfRangeException());
+  TEST(testStringFindChar());
+  TEST(testStringOutOfRangeException());
   return (0);
 }
