@@ -43,7 +43,8 @@
                 << std::endl;                                                  \
     } catch (std::exception & e) {                                             \
       if (dynamic_cast<EXC *>(&e)) {                                           \
-        std::cout << "[OK] " #EXPR " did throw " #EXC << std::endl;            \
+        std::cout << "[OK] " #EXPR " did throw " #EXC ": " << e.what()         \
+                  << std::endl;                                                \
       } else {                                                                 \
         std::cout << "[KO] " #EXPR " did not throw " #EXC << std::endl;        \
         std::cout << "Error: " << e.what() << std::endl;                       \
