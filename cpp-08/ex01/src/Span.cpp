@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:13:59 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 16:17:05 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/17 16:49:20 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Span &Span::operator=(const Span &other) {
 
 void Span::addNumber(int n) {
   if (this->isFull()) {
-    throw "Err";
+    throw SpanIsFullException();
   }
   this->_numbers.push_back(n);
 }
@@ -87,4 +87,8 @@ int Span::longestSpan(void) const {
     }
   }
   return (span);
+}
+
+const char *Span::SpanIsFullException::what(void) const throw() {
+  return ("The Span is full.");
 }

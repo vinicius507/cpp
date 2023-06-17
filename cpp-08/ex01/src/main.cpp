@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:44:49 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 16:21:22 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/17 16:34:58 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,24 @@ static void testLargeSpan(void) {
   EXPECT(sp.longestSpan(), 1024);
 }
 
+static void testSpanAddNumberIsFullException(void) {
+  Span sp;
+
+  EXPECT_EXCEPTION(sp.addNumber(0), Span::SpanIsFullException);
+}
+
+static void testSpanAddNumbersIsFullException(void) {
+  Span sp;
+  std::vector<int> vec(10, 0);
+
+  EXPECT_EXCEPTION(sp.addNumbers(vec), Span::SpanIsFullException);
+}
+
 int main(void) {
   TEST(testSubject());
   TEST(testShortSpan());
   TEST(testLargeSpan());
+  TEST(testSpanAddNumberIsFullException());
+  TEST(testSpanAddNumbersIsFullException());
   return (0);
 }
