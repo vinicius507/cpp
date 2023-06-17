@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 13:39:15 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 16:51:51 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/17 16:57:48 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,11 @@ public:
   };
 
   class NoCapacityException : public std::exception {
+  public:
+    const char *what(void) const throw();
+  };
+
+  class NotEnoughValuesException : public std::exception {
   public:
     const char *what(void) const throw();
   };

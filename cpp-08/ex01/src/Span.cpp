@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:13:59 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 16:51:13 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/17 16:57:48 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int Span::shortestSpan(void) const {
   std::vector<int>::const_iterator it, next;
 
   if (this->size() <= 1) {
-    throw "Err";
+    throw NotEnoughValuesException();
   }
 
   for (it = this->_numbers.begin(); it != this->_numbers.end(); it++) {
@@ -74,7 +74,7 @@ int Span::longestSpan(void) const {
   std::vector<int>::const_iterator it, next;
 
   if (this->size() <= 1) {
-    throw "Err";
+    throw NotEnoughValuesException();
   }
 
   for (it = this->_numbers.begin(); it != this->_numbers.end(); it++) {
@@ -95,4 +95,8 @@ const char *Span::SpanIsFullException::what(void) const throw() {
 
 const char *Span::NoCapacityException::what(void) const throw() {
   return ("The Span has no capacity for the provided numbers");
+}
+
+const char *Span::NotEnoughValuesException::what(void) const throw() {
+  return ("The Span does not have enough values");
 }
