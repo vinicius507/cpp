@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:13:59 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 15:53:23 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/17 16:17:05 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,22 @@
 #include <limits>
 #include <utility>
 
-Span::Span(void) : _capacity(0), _numbers(std::vector<int>()) {}
+Span::Span(void) : _numbers(std::vector<int>()) { this->_numbers.reserve(0); }
 
-Span::Span(size_t n) : _capacity(n), _numbers(std::vector<int>()) {}
+Span::Span(size_t n) : _numbers(std::vector<int>()) {
+  this->_numbers.reserve(n);
+}
 
-Span::Span(const Span &other)
-    : _capacity(other.capacity()), _numbers(std::vector<int>(other._numbers)) {}
+Span::Span(const Span &other) {
+  this->_numbers.reserve(other.capacity());
+  this->_numbers = std::vector<int>(other._numbers);
+}
 
 Span::~Span(void) {}
 
 Span &Span::operator=(const Span &other) {
   if (this != &other) {
-    const_cast<size_t &>(this->_capacity) = other.capacity();
+    this->_numbers.reserve(other.capacity());
     this->_numbers = std::vector<int>(other._numbers);
   }
   return (*this);
@@ -39,7 +43,7 @@ void Span::addNumber(int n) {
   this->_numbers.push_back(n);
 }
 
-size_t Span::capacity(void) const { return (this->_capacity); }
+size_t Span::capacity(void) const { return (this->_numbers.capacity()); }
 
 size_t Span::size(void) const { return (this->_numbers.size()); }
 

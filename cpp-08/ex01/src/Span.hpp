@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 13:39:15 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 15:48:14 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/17 16:11:35 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ public:
   int longestSpan(void) const;
 
 private:
-  const size_t _capacity;
   std::vector<int> _numbers;
 };
 
