@@ -81,7 +81,6 @@ static void testIntListFind10(void) {
 static void testIntListOutOfRangeException(void) {
   int intArr[4] = {0, 10, 42, 512};
   std::list<int> intList(intArr, intArr + (sizeof(intArr) / sizeof(int)));
-  std::list<int>::iterator ten;
 
   EXPECT_EXCEPTION((void)easyFind(intList, 1), std::out_of_range);
 }
