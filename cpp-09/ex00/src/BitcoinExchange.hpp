@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 11:22:48 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/18 15:30:19 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/18 15:35:05 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,8 @@ public:
    */
   static BitcoinExchange *fromCSV(const std::string &filename);
 
-  /**
-   * @typedef ConversionRates
-   * @brief Type definition for the BitcoinExchange exchange rates.
-   */
-  typedef std::map<std::string, float> ConversionRates;
-
 private:
-  ConversionRates _exchangeRates; /**< The exchange rates
+  std::map<std::string, float> _exchangeRates; /**< The exchange rates
                                    history from the BitcoinExchange object. */
 
   /**
