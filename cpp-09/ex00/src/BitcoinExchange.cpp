@@ -6,13 +6,14 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 12:59:44 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/18 16:29:38 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/18 17:28:48 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 #include "parsers.hpp"
 #include <fstream>
+#include <iostream>
 #include <sstream>
 #include <stdexcept>
 #include <string>
@@ -55,4 +56,18 @@ BitcoinExchange *BitcoinExchange::fromCSV(const std::string &filename) {
     exchangeRates[(parseDate(date))] = parseFloat(exchangeRate);
   }
   return (new BitcoinExchange(exchangeRates));
+}
+
+float BitcoinExchange::exchange(const std::string &date, float amount) {
+  std::map<std::string, float>::iterator it;
+
+  if (this->_exchangeRates[date]) {
+    return (this->_exchangeRates[date] * amount);
+  }
+  it = this->_exchangeRates.lower_bound(date);
+  if (it == this->_exchangeRates.begin()) {
+    return (it->second * amount);
+  }
+  it--;
+  return (it->second * amount);
 }

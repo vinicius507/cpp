@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 11:22:48 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/18 17:01:53 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/18 17:02:03 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,16 @@ public:
    * @return A pointer to the BitcoinExchange object.
    */
   static BitcoinExchange *fromCSV(const std::string &filename);
+
+  /**
+   * @brief Exchanges a certain amout of BTC to ₳.
+   *
+   * @param date The date of the transaction.
+   * @param amount The amount of BTC to exchange.
+   * @throw std::runtime_error If the amount of BTC is less than 0 or higher
+   * than 1000.
+   */
+  float exchange(const std::string &date, float amount);
 
 private:
   std::map<std::string, float> _exchangeRates; /**< The exchange rates
