@@ -6,14 +6,13 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 12:59:44 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/18 15:30:26 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/18 16:29:38 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-#include <ctime>
+#include "parsers.hpp"
 #include <fstream>
-#include <iomanip>
 #include <sstream>
 #include <stdexcept>
 #include <string>
@@ -50,33 +49,10 @@ BitcoinExchange *BitcoinExchange::fromCSV(const std::string &filename) {
     if (!(std::getline(iss, date, ',')) or !(std::getline(iss, exchangeRate))) {
       throw std::runtime_error("Invalid CSV file");
     }
-    exchangeRates[(parseDate(date))] = parseExchangeRate(exchangeRate);
+    if ((parseFloat(exchangeRate) < 0.f)) {
+      throw std::runtime_error("Invalid exchange rate: " + exchangeRate);
+    }
+    exchangeRates[(parseDate(date))] = parseFloat(exchangeRate);
   }
   return (new BitcoinExchange(exchangeRates));
-}
-
-std::string BitcoinExchange::parseDate(const std::string &date) {
-  std::istringstream ss(date);
-  std::tm tmDate = {};
-  ss >> std::get_time(&tmDate, "%Y-%m-%d");
-
-  if ((ss.fail())) {
-    throw std::runtime_error("Invalid date: " + date);
-  }
-  return (date);
-}
-
-float BitcoinExchange::parseExchangeRate(const std::string &exchangeRate) {
-  float rate;
-  std::istringstream ss(exchangeRate);
-
-  if (!(ss >> rate) || ss.fail() || !(ss.eof())) {
-    throw std::runtime_error("Invalid exchange rate: " + exchangeRate);
-  }
-  if (rate < 0.f) {
-    throw std::runtime_error(
-        "Invalid exchange rate, expected a value higher than 0, got: " +
-        exchangeRate);
-  }
-  return (rate);
 }

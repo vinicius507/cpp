@@ -6,7 +6,7 @@
 #    By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/18 11:22:11 by vgoncalv          #+#    #+#              #
-#    Updated: 2023/06/18 14:18:32 by vgoncalv         ###   ########.fr        #
+#    Updated: 2023/06/18 16:20:53 by vgoncalv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra -Wshadow --pedantic-errors -std=c++98
 SRC_DIR := ./src
 BUILD_DIR = ./build
 
-SRCS := main.cpp BitcoinExchange.cpp
+SRCS := main.cpp BitcoinExchange.cpp parsers.cpp
 
 OBJS := $(addprefix $(BUILD_DIR)/,$(SRCS:%.cpp=%.o))
 SRCS := $(addprefix $(SRC_DIR)/,$(SRCS))

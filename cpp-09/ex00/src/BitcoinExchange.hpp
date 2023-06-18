@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 11:22:48 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/18 15:35:05 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/18 17:01:53 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,24 +83,6 @@ public:
 private:
   std::map<std::string, float> _exchangeRates; /**< The exchange rates
                                    history from the BitcoinExchange object. */
-
-  /**
-   * @brief Parses a date of the format YYYY-mm-dd.
-   *
-   * @param date The date string to be parsed.
-   * @return A copy of the date string.
-   * @throw std::runtime_error If the provided date string is invalid.
-   */
-  static std::string parseDate(const std::string &date);
-
-  /**
-   * @brief Parses an exchange rate for the BTC.
-   *
-   * @param exchangeRate The exchange rate string to be parsed.
-   * @return The parsed exchange rate as a float.
-   * @throw std::runtime_error If the provided exchange rate string is invalid.
-   */
-  static float parseExchangeRate(const std::string &exchangeRate);
 };
 
 #endif // !BITCOINEXCHANGE_HPP
