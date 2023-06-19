@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:49:56 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/19 14:51:40 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:51:56 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ public:
   int result(void) const;
 
 private:
-  std::stack<char> _stack; /**< The RPN tokens. */
+  std::stack<char> _tokens; /**< The RPN tokens. */
 
   /**
    * @brief Template auxiliary function for popping the top value of a

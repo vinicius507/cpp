@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:59:22 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/19 14:37:02 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:51:56 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,17 @@ RPN::RPN(const std::string &expr) {
     if (allowedChars.find(*it) == std::string::npos) {
       throw "Err";
     }
-    this->_stack.push(*it);
+    this->_tokens.push(*it);
   }
 }
 
-RPN::RPN(const RPN &other) : _stack(other._stack) {}
+RPN::RPN(const RPN &other) : _tokens(other._tokens) {}
 
 RPN::~RPN(void) {}
 
 RPN &RPN::operator=(const RPN &other) {
   if (this != &other) {
-    this->_stack = std::stack<char>(other._stack);
+    this->_tokens = std::stack<char>(other._tokens);
   }
   return (*this);
 }
@@ -47,7 +47,7 @@ RPN &RPN::operator=(const RPN &other) {
 int RPN::result(void) const {
   std::stack<int> aux;
   std::string ops("+-*/");
-  std::stack<char> stackCopy(this->_stack);
+  std::stack<char> stackCopy(this->_tokens);
 
   while (!stackCopy.empty()) {
     char c = popStack(stackCopy);
