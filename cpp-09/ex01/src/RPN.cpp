@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:59:22 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/19 14:51:56 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:57:54 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ RPN::RPN(const std::string &expr) {
       continue;
     }
     if (allowedChars.find(*it) == std::string::npos) {
-      throw "Err";
+      throw std::runtime_error(std::string("Invalid token: ") + *it);
     }
     this->_tokens.push(*it);
   }
