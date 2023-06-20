@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 14:18:37 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/20 13:09:42 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:28:44 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static void usage(const char *pname) {
 
 static void displayExchangeReceiptLine(BitcoinExchange *btc, size_t lineno,
                                        const std::string &line) {
-  float amount;
   std::string date;
+  float amount, altarians;
 
   if (lineno == 1 && line == "date | value") {
     return;
@@ -44,8 +44,9 @@ static void displayExchangeReceiptLine(BitcoinExchange *btc, size_t lineno,
     throw std::runtime_error(
         "Invalid BTC amount, expected a positive value smaller than 1000");
   }
+  altarians = btc->exchange(date, amount);
   std::cout << std::fixed << std::setprecision(2) << date << " => " << amount
-            << "BTC = " << btc->exchange(date, amount) << "₳" << std::endl;
+            << "BTC = " << altarians << "₳" << std::endl;
 }
 
 int main(int argc, char **argv) {

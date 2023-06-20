@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 11:22:48 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/18 17:02:03 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:31:15 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,7 @@ public:
    *
    * @param date The date of the transaction.
    * @param amount The amount of BTC to exchange.
-   * @throw std::runtime_error If the amount of BTC is less than 0 or higher
-   * than 1000.
+   * @throw std::runtime_error If there is no exchange rate prior to date.
    */
   float exchange(const std::string &date, float amount);
 

@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 12:59:44 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/18 17:28:48 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:28:52 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,15 @@ BitcoinExchange *BitcoinExchange::fromCSV(const std::string &filename) {
 float BitcoinExchange::exchange(const std::string &date, float amount) {
   std::map<std::string, float>::iterator it;
 
-  if (this->_exchangeRates[date]) {
-    return (this->_exchangeRates[date] * amount);
+  it = this->_exchangeRates.find(date);
+  if (it != this->_exchangeRates.end()) {
+    return (it->second * amount);
   }
   it = this->_exchangeRates.lower_bound(date);
   if (it == this->_exchangeRates.begin()) {
+    if (it->first > date) {
+      throw std::runtime_error("No exchange rate prior to " + date);
+    }
     return (it->second * amount);
   }
   it--;
