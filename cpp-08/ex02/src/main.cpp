@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 17:39:03 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/20 13:47:33 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 14:57:25 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,24 +89,6 @@ static void testMutantStackIterator(void) {
   }
 }
 
-static void testMutantStackConstIterator(void) {
-  int intArr[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-
-  MutantStack<int> stack;
-  std::vector<int> vec(intArr, intArr + (sizeof(intArr) / sizeof(int)));
-  std::vector<int>::iterator expectedIt;
-  MutantStack<int>::const_iterator resultIt;
-
-  for (int i = 0; i < 10; i++) {
-    stack.push(i);
-  }
-  expectedIt = vec.begin();
-  for (resultIt = stack.cbegin(); resultIt != stack.cend(); resultIt++) {
-    EXPECT(*resultIt, *expectedIt);
-    expectedIt++;
-  }
-}
-
 static void testMutantStackReverseIterator(void) {
   int intArr[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
@@ -125,29 +107,9 @@ static void testMutantStackReverseIterator(void) {
   }
 }
 
-static void testMutantStackReverseConstIterator(void) {
-  int intArr[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-
-  MutantStack<int> stack;
-  std::vector<int> vec(intArr, intArr + (sizeof(intArr) / sizeof(int)));
-  std::vector<int>::reverse_iterator expectedIt;
-  MutantStack<int>::const_reverse_iterator resultIt;
-
-  for (int i = 0; i < 10; i++) {
-    stack.push(i);
-  }
-  expectedIt = vec.rbegin();
-  for (resultIt = stack.crbegin(); resultIt != stack.crend(); resultIt++) {
-    EXPECT(*resultIt, *expectedIt);
-    expectedIt++;
-  }
-}
-
 int main(void) {
   TEST(testSubject());
   TEST(testMutantStackIterator());
-  TEST(testMutantStackConstIterator());
   TEST(testMutantStackReverseIterator());
-  TEST(testMutantStackReverseConstIterator());
   return (0);
 }

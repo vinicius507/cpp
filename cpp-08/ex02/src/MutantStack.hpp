@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 17:22:00 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 18:17:40 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 14:56:56 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,6 @@ public:
   typedef typename std::stack<T>::container_type::iterator iterator;
 
   /**
-   * @typedef const_iterator
-   *
-   * An iterator type that provides read-only access to the elements of the
-   * MutantStack.
-   */
-  typedef typename std::stack<T>::container_type::const_iterator const_iterator;
-
-  /**
    * @typedef reverse_iterator
    *
    * A reverse iterator type that provides mutable access to the elements of the
@@ -94,15 +86,6 @@ public:
    */
   typedef
       typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
-
-  /**
-   * @typedef const_reverse_iterator
-   *
-   * A reverse iterator type that provides read-only access to the elements of
-   * the MutantStack in reverse order.
-   */
-  typedef typename std::stack<T>::container_type::const_reverse_iterator
-      const_reverse_iterator;
 
   /**
    * @brief Returns an iterator pointing to the first element of the
@@ -122,23 +105,6 @@ public:
   iterator end(void) { return (this->c.end()); }
 
   /**
-   * @brief Returns a const iterator pointing to the first element of the
-   * MutantStack.
-   *
-   * @return A const iterator pointing to the first element of the MutantStack.
-   */
-  const_iterator cbegin(void) const { return (this->c.cbegin()); }
-
-  /**
-   * @brief Returns a const iterator referring to the past-the-end element of
-   * the MutantStack.
-   *
-   * @return A const iterator referring to the past-the-end element of the
-   * MutantStack.
-   */
-  const_iterator cend(void) const { return (this->c.cend()); }
-
-  /**
    * @brief Returns a reverse iterator pointing to the last element of the
    * MutantStack.
    *
@@ -154,24 +120,6 @@ public:
    * element of the MutantStack.
    */
   reverse_iterator rend(void) { return (this->c.rend()); }
-
-  /**
-   * @brief Returns a const reverse iterator pointing to the last element of the
-   * MutantStack.
-   *
-   * @return A const reverse iterator pointing to the last element of the
-   * MutantStack.
-   */
-  const_reverse_iterator crbegin(void) const { return (this->c.crbegin()); }
-
-  /**
-   * @brief Returns a const reverse iterator referring to the element preceding
-   * the first element of the MutantStack.
-   *
-   * @return A const reverse iterator referring to the element preceding the
-   * first element of the MutantStack.
-   */
-  const_reverse_iterator crend(void) const { return (this->c.crend()); }
 };
 
 #endif // !MUTANTSTACK_HPP
