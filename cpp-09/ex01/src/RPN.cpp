@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:59:22 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/20 13:40:01 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:43:22 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int RPN::doOp(char op, int firstOperand, int secondOperand) const {
     break;
   case '/':
     if (secondOperand == 0) {
-      throw std::logic_error("Division by 0");
+      throw std::runtime_error("Division by 0");
     }
     return (firstOperand / secondOperand);
     break;

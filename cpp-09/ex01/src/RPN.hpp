@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:49:56 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/20 13:42:56 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:44:05 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ public:
    *
    * @return The result of the expression.
    * @throw std::runtime_error If the evaluation fails.
-   * @throw std::logic_error If there's a division by 0 in the expression.
    */
   int result(void) const;
 
@@ -89,7 +88,8 @@ private:
    * @param firstOperand The first operand of the operation.
    * @param secondOperand The second operand of the operation.
    * @return The result of the operation.
-   * @throw std::logic_error If there's a division by 0.
+   * @throw std::runtime_error If the operation is invalid, or if there is a
+   * division by 0.
    */
   int doOp(char op, int firstOperand, int secondOperand) const;
 
