@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 12:59:44 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/20 13:28:52 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:55:56 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
 
 BitcoinExchange *BitcoinExchange::fromCSV(const std::string &filename) {
   std::string line;
-  std::ifstream csv(filename);
+  std::ifstream csv(filename.c_str());
   std::map<std::string, float> exchangeRates;
 
-  std::getline(csv, line);
-  if ((csv.fail()) || line != "date,exchange_rate") {
+  if ((csv.fail()) || !(std::getline(csv, line)) ||
+      line != "date,exchange_rate") {
     throw std::runtime_error("Invalid CSV file");
   }
   while ((std::getline(csv, line))) {
