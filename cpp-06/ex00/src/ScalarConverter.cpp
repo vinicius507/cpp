@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:35:50 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/20 12:44:21 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:48:26 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,12 @@ int ScalarConverter::getScalarType(const std::string &literal) {
 }
 
 bool ScalarConverter::isCharLiteral(const std::string &literal) {
-  if (literal.length() != 3) {
+  size_t len = literal.length();
+
+  if (len != 3) {
     return (false);
   }
-  return (literal.front() == '\'' && literal.back() == '\'');
+  return (literal[0] == '\'' && literal[len - 1] == '\'');
 }
 
 bool ScalarConverter::isIntLiteral(const std::string &literal) {
@@ -84,9 +86,15 @@ bool ScalarConverter::isIntLiteral(const std::string &literal) {
 
 bool ScalarConverter::isFloatLiteral(const std::string &literal) {
   float f;
-  std::stringstream ss(literal.substr(0, literal.length() - 1));
+  size_t len;
+  std::stringstream ss;
 
-  return ((ss >> f) && (ss.eof()) && (literal.back() == 'f'));
+  len = literal.length();
+  if (len < 2) {
+    return (false);
+  }
+  ss.str(literal.substr(0, len - 1));
+  return ((ss >> f) && (ss.eof()) && (literal[len - 1] == 'f'));
 }
 
 bool ScalarConverter::isDoubleLiteral(const std::string &literal) {
