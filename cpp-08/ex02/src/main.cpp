@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 17:39:03 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 18:04:41 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:57:40 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static void testMutantStackIterator(void) {
   expectedIt = vec.begin();
   for (resultIt = stack.begin(); resultIt != stack.end(); resultIt++) {
     EXPECT(*resultIt, *expectedIt);
-    expectedIt = std::next(expectedIt);
+    expectedIt++;
   }
 }
 
@@ -103,7 +103,7 @@ static void testMutantStackConstIterator(void) {
   expectedIt = vec.cbegin();
   for (resultIt = stack.cbegin(); resultIt != stack.cend(); resultIt++) {
     EXPECT(*resultIt, *expectedIt);
-    expectedIt = std::next(expectedIt);
+    expectedIt++;
   }
 }
 
