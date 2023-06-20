@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 15:30:24 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/16 16:04:33 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:53:45 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #define SERIALIZER_HPP
 
 #include "Data.hpp"
-#include <cstdint>
+#include <stdint.h>
 
 /**
  * @class Serializer

@@ -6,12 +6,12 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 15:29:20 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/16 16:21:36 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:53:51 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
-#include <cstdint>
+#include <stdint.h>
 #include <iostream>
 #include <limits>
 
