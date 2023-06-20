@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:13:59 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/17 16:57:48 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:02:21 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ int Span::shortestSpan(void) const {
   }
 
   for (it = this->_numbers.begin(); it != this->_numbers.end(); it++) {
-    next = std::next(it, 1);
+    next = it + 1; // This is possible because std::vector<T>::const_iterator
+                   // is a Random Access Iterator.
     if (next == this->_numbers.end()) {
       break;
     }
@@ -78,7 +79,7 @@ int Span::longestSpan(void) const {
   }
 
   for (it = this->_numbers.begin(); it != this->_numbers.end(); it++) {
-    next = std::next(it, 1);
+    next = it + 1;
     if (next == this->_numbers.end()) {
       break;
     }
