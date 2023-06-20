@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:49:56 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/19 14:51:56 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:37:11 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,17 @@ public:
 
 private:
   std::stack<char> _tokens; /**< The RPN tokens. */
+
+  /**
+   * @brief Performs an arithimetic operation between two numbers.
+   *
+   * @param op The operation to perform (e.g. '+', '-', '*' or '/').
+   * @param firstOperand The first operand of the operation.
+   * @param secondOperand The second operand of the operation.
+   * @return The result of the operation.
+   * @throw std::logic_error If there's a division by 0.
+   */
+  int doOp(char op, int firstOperand, int secondOperand) const;
 
   /**
    * @brief Template auxiliary function for popping the top value of a

@@ -6,12 +6,13 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:59:22 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/19 14:57:54 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:40:01 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 #include <cctype>
+#include <functional>
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -56,34 +57,38 @@ int RPN::result(void) const {
       aux.push(c - '0');
       continue;
     }
-
     if (aux.size() < 2) {
       throw std::runtime_error(std::string("Unexpected token: ") + c);
     }
-
     int secondOperand = popStack(aux);
     int firstOperand = popStack(aux);
-
-    switch (c) {
-    case '+':
-      aux.push(firstOperand + secondOperand);
-      break;
-    case '-':
-      aux.push(firstOperand - secondOperand);
-      break;
-    case '*':
-      aux.push(firstOperand * secondOperand);
-      break;
-    case '/':
-      if (secondOperand == 0) {
-        throw std::logic_error("Division by 0");
-      }
-      aux.push(firstOperand / secondOperand);
-      break;
-    default:
-      throw std::runtime_error(std::string("Unexpected token: ") + c);
-      break;
-    }
+    aux.push(this->doOp(c, firstOperand, secondOperand));
+  }
+  if (aux.size() > 1) {
+    throw std::runtime_error("Unterminated expression");
   }
   return (aux.top());
+}
+
+int RPN::doOp(char op, int firstOperand, int secondOperand) const {
+  switch (op) {
+  case '+':
+    return firstOperand + secondOperand;
+    break;
+  case '-':
+    return (firstOperand - secondOperand);
+    break;
+  case '*':
+    return (firstOperand * secondOperand);
+    break;
+  case '/':
+    if (secondOperand == 0) {
+      throw std::logic_error("Division by 0");
+    }
+    return (firstOperand / secondOperand);
+    break;
+  default:
+    throw std::runtime_error(std::string("Unexpected token: ") + op);
+    break;
+  }
 }
