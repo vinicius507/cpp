@@ -6,31 +6,27 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:59:22 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/20 13:43:22 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 14:54:58 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
-#include <cctype>
-#include <functional>
-#include <iostream>
-#include <stdexcept>
-#include <string>
 
 RPN::RPN(void) {}
 
 RPN::RPN(const std::string &expr) {
-  std::string::const_reverse_iterator it;
+  size_t i;
   std::string allowedChars("0123456789+-*/");
 
-  for (it = expr.crbegin(); it != expr.crend(); it++) {
-    if (*it == ' ') {
+  i = expr.length();
+  while (i-- > 0) {
+    if (std::isspace(expr[i])) {
       continue;
     }
-    if (allowedChars.find(*it) == std::string::npos) {
-      throw std::runtime_error(std::string("Invalid token: ") + *it);
+    if (allowedChars.find(expr[i]) == std::string::npos) {
+      throw std::runtime_error(std::string("Invalid token: ") + expr[i]);
     }
-    this->_tokens.push(*it);
+    this->_tokens.push(expr[i]);
   }
 }
 
