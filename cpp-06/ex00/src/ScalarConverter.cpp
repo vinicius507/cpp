@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:35:50 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/15 13:07:00 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:44:21 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,6 @@ bool ScalarConverter::doubleOverflowsInt(double d) {
 }
 
 const char *ScalarConverter::InvalidLiteralException::what(void) const throw() {
-  return "Invalid literal provided. Expected a literal of a int, an int, a "
-         "float or a double.";
+  return ("Invalid literal provided. Expected a literal of type char, int, "
+          "float or double.");
 }
