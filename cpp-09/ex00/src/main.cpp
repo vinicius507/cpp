@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 14:18:37 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/18 17:40:30 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:09:42 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void displayExchangeReceiptLine(BitcoinExchange *btc, size_t lineno,
   if (lineno == 1 && line == "date | value") {
     return;
   }
-  if ((line.length()) < 14 or (line.substr(10, 3) == " | ")) {
+  if ((line.length()) < 14 or (line.substr(10, 3) != " | ")) {
     throw std::runtime_error("Invalid input line: " + line);
   }
   date = parseDate(line.substr(0, 10));
