@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:49:56 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/20 13:37:11 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:42:56 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ public:
    * Constructs a RPN object with the specified expression.
    *
    * @param expr The RPN expression to be used.
+   * @throw std::runtime_error If there is an invalid token.
    */
   RPN(const std::string &expr);
 
@@ -73,6 +74,8 @@ public:
    * @brief Evaluates the expression and returns its result.
    *
    * @return The result of the expression.
+   * @throw std::runtime_error If the evaluation fails.
+   * @throw std::logic_error If there's a division by 0 in the expression.
    */
   int result(void) const;
 
@@ -97,6 +100,7 @@ private:
    * @tparam T The type of the elements of the stack.
    * @param stack The stack to pop from.
    * @return The popped element from the stack.
+   * @throw std::runtime_error If the stack is empty.
    */
   template <typename T> static char popStack(std::stack<T> &stack) {
     char c;
