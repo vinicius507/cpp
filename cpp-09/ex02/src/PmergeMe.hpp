@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:15:23 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/21 19:55:17 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/21 19:58:07 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ private:
 
   static int jacobsthal(int n);
 
-  template <class Seq> static Seq createJacobsthalInsertSeq(Seq &pendingSeq) {
+  template <class Seq> static Seq createJacobsthalSeq(Seq &pendingSeq) {
     int idx;
     size_t size;
     size_t jacobsthalIdx;
