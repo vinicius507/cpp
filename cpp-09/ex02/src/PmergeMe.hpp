@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:15:23 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/21 19:58:07 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/21 20:49:34 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ private:
     if (n <= 1) {
       return;
     }
-    insertionSort(seq, n - 1);
+    insertionSortByLargestValue(seq, n - 1);
     i = n - 2;
     lastElement = seq[n - 1];
     while (i >= 0 && seq[i].second > lastElement.second) {
