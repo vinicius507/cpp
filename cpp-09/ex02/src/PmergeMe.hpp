@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:15:23 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/21 19:52:48 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/21 19:55:17 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ private:
   createVectorPendingSeq(std::vector<std::pair<uint, uint> > &pairs);
   /* clang-format on */
 
-  template <class Seq> static void insertionSort(Seq &seq, int n) {
+  template <class Seq>
+  static void insertionSortByLargestValue(Seq &seq, int n) {
     int i;
     typename Seq::value_type lastElement;
 
