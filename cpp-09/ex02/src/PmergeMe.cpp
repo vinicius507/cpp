@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:31:05 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/21 19:58:07 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/22 12:54:12 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void PmergeMe::sortVec(std::vector<uint> &arr) {
   jacobSeq = createJacobsthalSeq(pendingSeq);
   indexSeq = createIndexSeq(jacobSeq, pendingSeq);
   fillMainSeq(mainSeq, indexSeq, pendingSeq);
-  insertStraggler(mainSeq, *straggler);
+  if (straggler != NULL)
+    insertStraggler(mainSeq, *straggler);
   arr.assign(mainSeq.begin(), mainSeq.end());
 }
 
