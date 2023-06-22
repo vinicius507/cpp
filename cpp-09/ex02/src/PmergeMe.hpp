@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:15:23 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/22 15:37:49 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:00:31 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 #define PMERGEME_HPP
 
 #include <algorithm>
+#include <deque>
 #include <iterator>
-#include <list>
 #include <sys/types.h>
 #include <utility>
 #include <vector>
@@ -29,7 +29,7 @@ class PmergeMe {
 public:
   static void sortVec(std::vector<uint> &arr);
 
-  static void sortList(std::list<uint> &arr);
+  static void sortDeque(std::deque<uint> &arr);
 
   template <class Seq> static bool isSorted(Seq &arr) {
     typename Seq::iterator it, next;
@@ -78,6 +78,15 @@ private:
 
   static std::vector<uint>
   createVectorPendingSeq(std::vector<std::pair<uint, uint> > &pairs);
+
+  static std::deque<std::pair<uint, uint> >
+  createDequePairs(std::deque<uint> &arr);
+
+  static std::deque<uint>
+  createDequeMainSeq(std::deque<std::pair<uint, uint> > &pairs);
+
+  static std::deque<uint>
+  createDequePendingSeq(std::deque<std::pair<uint, uint> > &pairs);
   /* clang-format on */
 
   template <class PairSeq>
@@ -120,11 +129,11 @@ private:
   }
 
   template <class Seq>
-  static std::vector<uint> createIndexSeq(Seq &jacobSeq, Seq &pendingSeq) {
+  static Seq createIndexSeq(Seq &jacobSeq, Seq &pendingSeq) {
+    Seq indexSeq(1, 0);
     size_t index = 1;
     size_t lastIndex = 1;
     typename Seq::iterator it;
-    std::vector<uint> indexSeq(1, 0);
 
     if (pendingSeq.empty()) {
       return (indexSeq);

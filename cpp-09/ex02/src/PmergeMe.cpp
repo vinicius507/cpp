@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:31:05 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/22 14:13:18 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:01:57 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,31 @@ void PmergeMe::sortVec(std::vector<uint> &arr) {
   arr.assign(mainSeq.begin(), mainSeq.end());
 }
 
+void PmergeMe::sortDeque(std::deque<uint> &arr) {
+  uint *straggler = NULL; // clang-format off
+  std::deque<std::pair<uint, uint> > pairs; // clang-format on
+  std::deque<uint> mainSeq, pendingSeq, jacobSeq, indexSeq;
+
+  if (arr.size() < 2 or isSorted(arr)) {
+    return;
+  }
+  if (hasStraggler(arr)) {
+    straggler = &arr.back();
+    arr.pop_back();
+  }
+  pairs = createDequePairs(arr);
+  sortPairs(pairs);
+  insertionSortByLargestValue(pairs, pairs.size());
+  mainSeq = createDequeMainSeq(pairs);
+  pendingSeq = createDequePendingSeq(pairs);
+  jacobSeq = createJacobsthalSeq(pendingSeq);
+  indexSeq = createIndexSeq(jacobSeq, pendingSeq);
+  fillMainSeq(mainSeq, indexSeq, pendingSeq);
+  if (straggler != NULL)
+    insertStraggler(mainSeq, *straggler);
+  arr.assign(mainSeq.begin(), mainSeq.end());
+}
+
 // clang-format off
 std::vector<std::pair<uint, uint> >
 PmergeMe::createVectorPairs(std::vector<uint> &arr) {
@@ -80,6 +105,42 @@ std::vector<uint>
 PmergeMe::createVectorPendingSeq(std::vector<std::pair<uint, uint> > &pairs) {
   std::vector<uint> mainSeq;
   std::vector<std::pair<uint, uint> >::iterator it;
+
+  for (it = pairs.begin(); it != pairs.end(); it++) {
+    mainSeq.push_back(it->first);
+  }
+  return (mainSeq);
+}
+
+std::deque<std::pair<uint, uint> >
+PmergeMe::createDequePairs(std::deque<uint> &arr) {
+  std::deque<uint>::iterator it, next;
+  std::deque<std::pair<uint, uint> > pairs;
+
+  it = arr.begin();
+  while (it != arr.end()) {
+    next = it + 1;
+    pairs.push_back(std::make_pair(*it, *next));
+    it += 2;
+  }
+  return (pairs);
+}
+
+std::deque<uint>
+PmergeMe::createDequeMainSeq(std::deque<std::pair<uint, uint> > &pairs) {
+  std::deque<uint> mainSeq;
+  std::deque<std::pair<uint, uint> >::iterator it = pairs.begin();
+
+  for (it = pairs.begin(); it != pairs.end(); it++) {
+    mainSeq.push_back(it->second);
+  }
+  return (mainSeq);
+}
+
+std::deque<uint>
+PmergeMe::createDequePendingSeq(std::deque<std::pair<uint, uint> > &pairs) {
+  std::deque<uint> mainSeq;
+  std::deque<std::pair<uint, uint> >::iterator it;
 
   for (it = pairs.begin(); it != pairs.end(); it++) {
     mainSeq.push_back(it->first);

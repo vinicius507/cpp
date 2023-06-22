@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:46:16 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/22 14:52:56 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:05:16 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,11 @@ template <class Seq> std::string seqToString(Seq &seq) {
   return (ss.str());
 }
 
-template <class Seq> void benchSort(Seq &seq, const std::string &type) {
+template <class Seq>
+void benchSort(const std::string &type, Seq &seq, void (*sortFunc)(Seq &)) {
   long elapsedTime;
-  void (*sortFunc)(Seq &);
   struct timeval begin, end;
 
-  sortFunc = &PmergeMe::sortVec;
   std::cout << "Before: " << seqToString(seq) << std::endl;
   gettimeofday(&begin, NULL);
   sortFunc(seq);
