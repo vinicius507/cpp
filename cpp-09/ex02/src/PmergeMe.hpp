@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:15:23 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/22 14:16:52 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/22 15:09:39 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,13 +162,17 @@ private:
   template <class Seq>
   static void fillMainSeq(Seq &mainSeq, Seq &indexSeq, Seq &pendingSeq) {
     uint target;
+    uint addedCount;
     typename Seq::iterator it;
     typename Seq::iterator targetPos;
 
+    addedCount = 0;
     for (it = indexSeq.begin(); it != indexSeq.end(); it++) {
       target = pendingSeq.at(*it);
-      targetPos = findPos(mainSeq.begin(), mainSeq.begin() + *it + 1, target);
+      targetPos =
+          findPos(mainSeq.begin(), mainSeq.begin() + *it + addedCount, target);
       mainSeq.insert(targetPos, target);
+      addedCount++;
     }
   }
 
