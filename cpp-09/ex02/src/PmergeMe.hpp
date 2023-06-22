@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:15:23 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/21 20:49:34 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/22 13:01:12 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,9 @@ private:
     size_t jacobsthalIdx;
     Seq jacobsthalSeq;
 
+    if (pendingSeq.empty()) {
+      return (jacobsthalSeq);
+    }
     idx = 3;
     size = pendingSeq.size();
     while ((jacobsthalIdx = jacobsthal(idx)) < size - 1) {
