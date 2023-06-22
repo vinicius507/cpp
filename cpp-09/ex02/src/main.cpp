@@ -6,37 +6,60 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 18:16:25 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/21 19:54:07 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/22 12:52:40 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+#include "benchmark.hpp"
 #include <iostream>
+#include <stdexcept>
 
-template <class T> void printVec(std::vector<T> &vec) {
-  typename std::vector<T>::iterator it;
-
-  for (it = vec.begin(); it != vec.end(); it++) {
-    std::cout << *it;
-    if (it + 1 != vec.end()) {
-      std::cout << " ";
-    }
-  }
-  std::cout << std::endl;
+static void usage(const char *pname) {
+  std::cerr << "Usage: " << pname << " <sequence...>" << std::endl
+            << std::endl
+            << "Benchmarks the Ford-Johnson algorithm using std::vector and "
+               "std::list C++ STL sequence containers."
+            << std::endl
+            << std::endl
+            << "Arguments:" << std::endl
+            << "  <sequence...>  A sequence of non-negative numbers."
+            << std::endl;
 }
 
-int main(void) {
-  int arr[] = {26, 70, 32, 2,  49,  9,  96, 42, 25, 11, 41, 14, 30, 35, 18,
-               93, 4,  28, 47, 21,  65, 17, 34, 48, 83, 46, 38, 33, 95, 37,
-               97, 19, 31, 98, 74,  15, 76, 92, 75, 7,  1,  64, 13, 90, 20,
-               23, 82, 55, 50, 100, 66, 84, 71, 54, 67, 88, 3,  36, 72, 73,
-               62, 68, 27, 58, 12,  80, 5,  22, 29, 51, 45, 63, 99, 85, 86,
-               40, 60, 39, 69, 16,  57, 59, 78, 81, 43, 52, 44, 61, 91, 56,
-               87, 10, 6,  89, 77,  24, 94, 8,  53, 79, 101};
-  std::vector<uint> vec(arr, arr + (sizeof(arr) / sizeof(int)));
+static uint *parseArgs(int argc, char **argv) {
+  uint *arr;
 
-  printVec(vec);
-  PmergeMe::sortVec(vec);
-  printVec(vec);
+  if (argc < 2) {
+    return (NULL);
+  }
+  arr = new uint[argc]();
+  for (int i = 0; i < argc; i++) {
+    int n = std::atoi(argv[i]);
+    if (n < 0) {
+      throw std::runtime_error("Expected a sequence of non-negative numbers.");
+    }
+    arr[i] = static_cast<uint>(n);
+  }
+  return (arr);
+}
+
+int main(int argc, char **argv) {
+  uint *arr = NULL;
+  std::vector<uint> vec;
+
+  if (argc <= 2) {
+    std::cerr << "Error: Not enough arguments." << std::endl;
+    usage(argv[0]);
+  }
+  try {
+    arr = parseArgs(argc - 1, argv + 1);
+    vec = std::vector<uint>(arr, arr + (argc - 1));
+    std::cout << "Before: " << seqToString(vec) << std::endl;
+    PmergeMe::sortVec(vec);
+    std::cout << "After: " << seqToString(vec) << std::endl;
+  } catch (std::exception &e) {
+    std::cerr << "Error: " << e.what() << std::endl;
+  }
   return (0);
 }
