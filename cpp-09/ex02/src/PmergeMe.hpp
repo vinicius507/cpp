@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:15:23 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/22 15:09:39 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/22 15:37:49 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,8 +169,8 @@ private:
     addedCount = 0;
     for (it = indexSeq.begin(); it != indexSeq.end(); it++) {
       target = pendingSeq.at(*it);
-      targetPos =
-          findPos(mainSeq.begin(), mainSeq.begin() + *it + addedCount, target);
+      targetPos = findPos(mainSeq.begin(),
+                          mainSeq.begin() + *it + 1 + addedCount, target);
       mainSeq.insert(targetPos, target);
       addedCount++;
     }
