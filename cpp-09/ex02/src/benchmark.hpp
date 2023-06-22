@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 12:46:16 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/22 16:05:16 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:08:00 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void benchSort(const std::string &type, Seq &seq, void (*sortFunc)(Seq &)) {
   }
   elapsedTime = (end.tv_usec - begin.tv_usec);
   elapsedTime += (end.tv_sec - begin.tv_sec) * 1000000;
-  std::cout << "Time to process a range of " << seq.size() << " elements with "
+  std::cerr << "Time to process a range of " << seq.size() << " elements with "
             << type << ": " << elapsedTime << " us." << std::endl;
 }
 
