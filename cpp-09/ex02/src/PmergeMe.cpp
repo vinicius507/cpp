@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:31:05 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/22 12:54:12 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/22 13:59:27 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,9 @@ PmergeMe::createVectorPairs(std::vector<uint> &arr) {
 std::vector<uint>
 PmergeMe::createVectorMainSeq(std::vector<std::pair<uint, uint> > &pairs) {
   std::vector<uint> mainSeq;
-
   std::vector<std::pair<uint, uint> >::iterator it = pairs.begin();
-  mainSeq.push_back(it->first);
-  for (; it != pairs.end(); it++) {
+
+  for (it = pairs.begin(); it != pairs.end(); it++) {
     mainSeq.push_back(it->second);
   }
   return (mainSeq);
@@ -80,9 +79,9 @@ PmergeMe::createVectorMainSeq(std::vector<std::pair<uint, uint> > &pairs) {
 std::vector<uint>
 PmergeMe::createVectorPendingSeq(std::vector<std::pair<uint, uint> > &pairs) {
   std::vector<uint> mainSeq;
-
   std::vector<std::pair<uint, uint> >::iterator it;
-  for (it = pairs.begin() + 1; it != pairs.end(); it++) {
+
+  for (it = pairs.begin(); it != pairs.end(); it++) {
     mainSeq.push_back(it->first);
   }
   return (mainSeq);
@@ -90,7 +89,9 @@ PmergeMe::createVectorPendingSeq(std::vector<std::pair<uint, uint> > &pairs) {
 // clang-format on
 
 int PmergeMe::jacobsthal(int n) {
-  if (n <= 1)
-    return (n);
+  if (n == 0)
+    return (0);
+  if (n == 1)
+    return (1);
   return (jacobsthal(n - 1) + 2 * jacobsthal(n - 2));
 }

@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 18:16:25 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/22 12:52:40 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/22 12:58:09 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int main(int argc, char **argv) {
   }
   try {
     arr = parseArgs(argc - 1, argv + 1);
-    vec = std::vector<uint>(arr, arr + (argc - 1));
+    vec = std::vector<uint>(arr, arr + argc - 1);
     std::cout << "Before: " << seqToString(vec) << std::endl;
     PmergeMe::sortVec(vec);
     std::cout << "After: " << seqToString(vec) << std::endl;

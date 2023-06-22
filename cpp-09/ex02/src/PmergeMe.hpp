@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:15:23 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/22 13:01:12 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/22 14:03:29 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ private:
   createVectorPendingSeq(std::vector<std::pair<uint, uint> > &pairs);
   /* clang-format on */
 
-  template <class Seq>
-  static void insertionSortByLargestValue(Seq &seq, int n) {
+  template <class PairSeq>
+  static void insertionSortByLargestValue(PairSeq &seq, int n) {
     int i;
-    typename Seq::value_type lastElement;
+    typename PairSeq::value_type lastElement;
 
     if (n <= 1) {
       return;
@@ -96,28 +96,30 @@ private:
     }
     idx = 3;
     size = pendingSeq.size();
-    while ((jacobsthalIdx = jacobsthal(idx)) < size - 1) {
+    while ((jacobsthalIdx = jacobsthal(idx)) < size) {
       jacobsthalSeq.push_back(jacobsthalIdx);
       idx++;
     }
+    jacobsthalSeq.push_back(size);
     return (jacobsthalSeq);
   }
 
   template <class Seq>
   static std::vector<uint> createIndexSeq(Seq &jacobSeq, Seq &pendingSeq) {
-    size_t index, pos;
+    size_t index = 1;
     size_t lastIndex = 1;
     typename Seq::iterator it;
-    std::vector<uint> indexSeq;
+    std::vector<uint> indexSeq(1, 0);
 
     if (pendingSeq.empty()) {
       return (indexSeq);
     }
     for (it = jacobSeq.begin(); it != jacobSeq.end(); it++) {
       index = *it;
-      pos = index;
+      size_t pos = index;
       while (pos > lastIndex) {
-        indexSeq.push_back(pos--);
+        indexSeq.push_back(pos - 1);
+        pos--;
       }
       lastIndex = index;
     }
@@ -149,8 +151,8 @@ private:
     typename Seq::iterator targetPos;
 
     for (it = indexSeq.begin(); it != indexSeq.end(); it++) {
-      target = pendingSeq.at((*it) - 1);
-      targetPos = findPos(mainSeq.begin(), mainSeq.begin() + (*it + 1), target);
+      target = pendingSeq.at(*it);
+      targetPos = findPos(mainSeq.begin(), mainSeq.begin() + *it + 1, target);
       mainSeq.insert(targetPos, target);
     }
   }
