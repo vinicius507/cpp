@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 18:16:25 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/22 12:58:09 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/22 14:15:48 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static uint *parseArgs(int argc, char **argv) {
   uint *arr;
 
   if (argc < 2) {
-    return (NULL);
+    throw std::runtime_error("Expected a sequence of two or more numbers.");
   }
   arr = new uint[argc]();
   for (int i = 0; i < argc; i++) {
@@ -48,18 +48,16 @@ int main(int argc, char **argv) {
   uint *arr = NULL;
   std::vector<uint> vec;
 
-  if (argc <= 2) {
-    std::cerr << "Error: Not enough arguments." << std::endl;
-    usage(argv[0]);
-  }
   try {
     arr = parseArgs(argc - 1, argv + 1);
-    vec = std::vector<uint>(arr, arr + argc - 1);
-    std::cout << "Before: " << seqToString(vec) << std::endl;
-    PmergeMe::sortVec(vec);
-    std::cout << "After: " << seqToString(vec) << std::endl;
   } catch (std::exception &e) {
     std::cerr << "Error: " << e.what() << std::endl;
+    usage(argv[0]);
+    return (1);
   }
+  vec = std::vector<uint>(arr, arr + argc - 1);
+  std::cout << "Before: " << seqToString(vec) << std::endl;
+  PmergeMe::sortVec(vec);
+  std::cout << "After: " << seqToString(vec) << std::endl;
   return (0);
 }
