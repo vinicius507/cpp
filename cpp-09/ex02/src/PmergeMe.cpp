@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:31:05 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/22 13:59:27 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/22 14:13:18 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void PmergeMe::sortVec(std::vector<uint> &arr) {
   std::vector<std::pair<uint, uint> > pairs; // clang-format on
   std::vector<uint> mainSeq, pendingSeq, jacobSeq, indexSeq;
 
-  if (arr.size() < 2) {
+  if (arr.size() < 2 or isSorted(arr)) {
     return;
   }
   if (hasStraggler(arr)) {

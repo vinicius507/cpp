@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:15:23 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/22 14:03:29 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/22 14:16:52 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,21 @@ public:
   static void sortVec(std::vector<uint> &arr);
 
   static void sortList(std::list<uint> &arr);
+
+  template <class Seq> static bool isSorted(Seq &arr) {
+    typename Seq::iterator it, next;
+
+    for (it = arr.begin(); it != arr.end(); it++) {
+      next = it + 1;
+      if (next == arr.end()) {
+        break;
+      }
+      if (*next < *it) {
+        return (false);
+      }
+    }
+    return (true);
+  }
 
 private:
   PmergeMe(void);
