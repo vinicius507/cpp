@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 18:16:25 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/22 16:05:39 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:11:14 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ int main(int argc, char **argv) {
   std::deque<uint> deq(arr, arr + argc - 1);
   benchSort("std::vector", vec, PmergeMe::sortVec);
   benchSort("std::deque", deq, PmergeMe::sortDeque);
+  delete[] arr;
   return (0);
 }
