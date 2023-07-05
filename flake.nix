@@ -12,21 +12,31 @@
     nixpkgs,
     ft-nix,
   }: let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      overlays = [ft-nix.overlays.norminette];
-    };
+    allSystems = [
+      "x86_64-linux"
+      "aarch64-linux"
+    ];
+
+    forEachSystem = f:
+      nixpkgs.lib.genAttrs allSystems (system:
+        f {
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ft-nix.overlays.norminette];
+          };
+        });
   in {
-    devShells.${system}.default = pkgs.mkShell {
-      packages = with pkgs; [
-        bear
-        clang-tools_12
-        gnumake
-        llvmPackages_12.libcxxClang
-        norminette
-        valgrind
-      ];
-    };
+    devShells = forEachSystem ({pkgs}: {
+      default = pkgs.mkShell {
+        packages = with pkgs; [
+          bear
+          clang-tools_12
+          gnumake
+          llvmPackages_12.libcxxClang
+          norminette
+          valgrind
+        ];
+      };
+    });
   };
 }
