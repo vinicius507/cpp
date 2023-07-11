@@ -26,8 +26,8 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &other) {
 }
 
 void PmergeMe::sortVec(std::vector<uint> &arr) {
-  uint *straggler = NULL; // clang-format off
-  std::vector<std::pair<uint, uint> > pairs; // clang-format on
+  uint *straggler = NULL;
+  std::vector<std::pair<uint, uint> > pairs;
   std::vector<uint> mainSeq, pendingSeq, jacobSeq, indexSeq;
 
   if (arr.size() < 2 or isSorted(arr)) {
@@ -51,8 +51,8 @@ void PmergeMe::sortVec(std::vector<uint> &arr) {
 }
 
 void PmergeMe::sortDeque(std::deque<uint> &arr) {
-  uint *straggler = NULL; // clang-format off
-  std::deque<std::pair<uint, uint> > pairs; // clang-format on
+  uint *straggler = NULL;
+  std::deque<std::pair<uint, uint> > pairs;
   std::deque<uint> mainSeq, pendingSeq, jacobSeq, indexSeq;
 
   if (arr.size() < 2 or isSorted(arr)) {
@@ -75,7 +75,7 @@ void PmergeMe::sortDeque(std::deque<uint> &arr) {
   arr.assign(mainSeq.begin(), mainSeq.end());
 }
 
-// clang-format off
+
 std::vector<std::pair<uint, uint> >
 PmergeMe::createVectorPairs(std::vector<uint> &arr) {
   std::vector<uint>::iterator it, next;
@@ -147,7 +147,7 @@ PmergeMe::createDequePendingSeq(std::deque<std::pair<uint, uint> > &pairs) {
   }
   return (mainSeq);
 }
-// clang-format on
+
 
 int PmergeMe::jacobsthal(int n) {
   if (n == 0)

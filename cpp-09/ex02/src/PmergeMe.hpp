@@ -69,7 +69,6 @@ private:
     }
   }
 
-  /* clang-format off */
   static std::vector<std::pair<uint, uint> >
   createVectorPairs(std::vector<uint> &arr);
 
@@ -87,7 +86,6 @@ private:
 
   static std::deque<uint>
   createDequePendingSeq(std::deque<std::pair<uint, uint> > &pairs);
-  /* clang-format on */
 
   template <class PairSeq>
   static void insertionSortByLargestValue(PairSeq &seq, int n) {
