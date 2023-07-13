@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:08:53 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/31 15:07:20 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/07/13 20:31:00 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ Dog::~Dog(void) {
 
 Dog &Dog::operator=(const Dog &other) {
   this->type = other.type;
-  this->brain = new Brain(*other.getBrain());
 
+  if (this->getBrain() != NULL) {
+    delete this->brain;
+  }
+  this->brain = new Brain(*other.getBrain());
   std::cout << "Assignment operator of the Dog class." << std::endl;
   return (*this);
 }

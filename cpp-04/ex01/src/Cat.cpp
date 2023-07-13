@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:38:46 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/31 15:16:41 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/07/13 20:29:46 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ Cat::~Cat(void) {
 
 Cat &Cat::operator=(const Cat &other) {
   this->type = other.type;
-  this->brain = new Brain(*other.getBrain());
 
+  if (this->getBrain() != NULL) {
+    delete this->brain;
+  }
+  this->brain = new Brain(*other.getBrain());
   std::cout << "Assignment operator of the Cat class." << std::endl;
   return (*this);
 }
