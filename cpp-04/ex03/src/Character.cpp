@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:55:00 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/07 17:44:20 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/07/14 17:01:30 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Character &Character::operator=(const Character &other) {
       if (this->inventory[i] != NULL) {
         delete this->inventory[i];
       }
-      this->inventory[i] = other.getMateria(i);
+      this->inventory[i] = other.getMateria(i)->clone();
     }
   }
   return (*this);
