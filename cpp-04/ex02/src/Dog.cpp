@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:08:53 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/07/13 20:41:29 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/07/17 18:09:53 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@ Dog::Dog(void) : AAnimal("Dog") {
   std::cout << "Default constructor for the Dog class." << std::endl;
 }
 
-Dog::Dog(const Dog &other) {
+Dog::Dog(const Dog &other) : AAnimal("Dog"), brain(NULL) {
   *this = other;
 
   std::cout << "Copy constructor for the Dog class." << std::endl;
 }
 
 Dog::~Dog(void) {
-  delete this->brain;
+  if (this->getBrain() != NULL) {
+    delete this->brain;
+  }
 
   std::cout << "Destructor for the Dog class." << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &other) {
-  this->type = other.type;
-
   if (this->getBrain() != NULL) {
     delete this->brain;
   }

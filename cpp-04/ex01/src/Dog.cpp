@@ -6,11 +6,12 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:08:53 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/07/13 20:31:00 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/07/17 18:08:59 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
+#include "Animal.hpp"
 #include <iostream>
 
 Dog::Dog(void) : Animal("Dog") {
@@ -19,21 +20,21 @@ Dog::Dog(void) : Animal("Dog") {
   std::cout << "Default constructor for the Dog class." << std::endl;
 }
 
-Dog::Dog(const Dog &other) {
+Dog::Dog(const Dog &other) : Animal("Dog"), brain(NULL) {
   *this = other;
 
   std::cout << "Copy constructor for the Dog class." << std::endl;
 }
 
 Dog::~Dog(void) {
-  delete this->brain;
+  if (this->getBrain() != NULL) {
+    delete this->brain;
+  }
 
   std::cout << "Destructor for the Dog class." << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &other) {
-  this->type = other.type;
-
   if (this->getBrain() != NULL) {
     delete this->brain;
   }

@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:26:31 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/05/31 15:44:01 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/07/17 18:11:33 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,15 @@ static void deepCopyTest(void) {
   printIdeas(catCopy.getBrain());
 }
 
+static void stackDeepCopyTest(void) {
+  Cat cat;
+  { Cat tmp = cat; }
+}
+
 int main(void) {
   TEST(basicSubjectTest);
   TEST(extendedSubjectTest);
   TEST(deepCopyTest);
+  TEST(stackDeepCopyTest);
   return (0);
 }
