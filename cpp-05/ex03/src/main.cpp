@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:24:01 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/07/18 16:39:14 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/07/18 16:40:41 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -301,6 +301,9 @@ static void testInternCreateUnknownForm(void) {
   form = intern.makeForm("Unknown form", "Marvin");
 
   EXPECT(form, NULL);
+
+  if (form != NULL)
+    delete form;
 }
 
 static void testInternCreatePresidentialPardonForm(void) {
@@ -313,6 +316,8 @@ static void testInternCreatePresidentialPardonForm(void) {
       dynamic_cast<PresidentialPardonForm *>(form) != NULL;
 
   EXPECT_TRUE(isPresidenitalPardonForm);
+
+  delete form;
 }
 
 static void testInternCreateRobotomyRequestForm(void) {
@@ -324,6 +329,8 @@ static void testInternCreateRobotomyRequestForm(void) {
   isRobotomyRequest = dynamic_cast<RobotomyRequestForm *>(form) != NULL;
 
   EXPECT_TRUE(isRobotomyRequest);
+
+  delete form;
 }
 
 static void testInternCreateShrubberyCreationForm(void) {
@@ -335,6 +342,8 @@ static void testInternCreateShrubberyCreationForm(void) {
   isShrubberyCreationForm = dynamic_cast<ShrubberyCreationForm *>(form) != NULL;
 
   EXPECT_TRUE(isShrubberyCreationForm);
+
+  delete form;
 }
 
 int main(void) {

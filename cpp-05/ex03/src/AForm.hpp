@@ -6,7 +6,7 @@
 /*   By: vgoncalv <vgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:07:01 by vgoncalv          #+#    #+#             */
-/*   Updated: 2023/06/08 17:08:03 by vgoncalv         ###   ########.fr       */
+/*   Updated: 2023/07/18 16:41:26 by vgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ public:
   /**
    * @brief Destructor for the AForm class.
    */
-  ~AForm(void);
+  virtual ~AForm(void);
 
   /**
    * @brief Assignment operator for the AForm class.
