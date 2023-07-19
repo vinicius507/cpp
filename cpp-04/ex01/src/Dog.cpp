@@ -20,7 +20,7 @@ Dog::Dog(void) : Animal("Dog") {
   std::cout << "Default constructor for the Dog class." << std::endl;
 }
 
-Dog::Dog(const Dog &other) : Animal("Dog"), brain(NULL) {
+Dog::Dog(const Dog &other) : Animal("Dog"), brain(new Brain) {
   *this = other;
 
   std::cout << "Copy constructor for the Dog class." << std::endl;
@@ -35,10 +35,7 @@ Dog::~Dog(void) {
 }
 
 Dog &Dog::operator=(const Dog &other) {
-  if (this->getBrain() != NULL) {
-    delete this->brain;
-  }
-  this->brain = new Brain(*other.getBrain());
+  *this->brain = *other.getBrain();
   std::cout << "Assignment operator of the Dog class." << std::endl;
   return (*this);
 }

@@ -19,7 +19,7 @@ Cat::Cat(void) : Animal("Cat") {
   std::cout << "Default constructor for the Cat class." << std::endl;
 }
 
-Cat::Cat(const Cat &other) : Animal("Cat"), brain(NULL) {
+Cat::Cat(const Cat &other) : Animal("Cat"), brain(new Brain) {
   *this = other;
 
   std::cout << "Copy constructor for the Cat class." << std::endl;
@@ -34,10 +34,7 @@ Cat::~Cat(void) {
 }
 
 Cat &Cat::operator=(const Cat &other) {
-  if (this->getBrain() != NULL) {
-    delete this->brain;
-  }
-  this->brain = new Brain(*other.getBrain());
+  *this->brain = *other.getBrain();
   std::cout << "Assignment operator of the Cat class." << std::endl;
   return (*this);
 }
