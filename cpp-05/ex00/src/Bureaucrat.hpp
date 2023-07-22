@@ -98,11 +98,13 @@ public:
 
   /**
    * @brief Increments the grade of the Bureaucrat object.
+   * @throws Bureaucrat::GradeTooHighException If the resulting grade is too high.
    */
   void incrementGrade(void);
 
   /**
    * @brief Decrements the grade of the Bureaucrat object.
+   * @throws Bureaucrat::GradeTooLowException If the resulting grade is too low.
    */
   void decrementGrade(void);
 
