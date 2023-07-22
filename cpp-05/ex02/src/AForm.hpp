@@ -41,9 +41,9 @@ public:
    * Constructs a AForm object with the specified name and the default required
    * grades of 150.
    *
-   * @param name The name of the AForm object.
+   * @param _name The name of the AForm object.
    */
-  explicit AForm(const std::string &name);
+  explicit AForm(const std::string &_name);
 
   /**
    * @brief Copy constructor for the AForm object.
@@ -97,20 +97,20 @@ public:
   /**
    * @brief Sets the required grade to sign the AForm object.
    *
-   * @param grade The new required signing grade for the AForm object.
+   * @param _grade The new required signing grade for the AForm object.
    * @throws AForm::GradeTooHighException If the grade value is too high.
    * @throws AForm::GradeTooLowException If the grade value is too low.
    */
-  void setRequiredSigningGrade(int grade);
+  void setRequiredSigningGrade(int _grade);
 
   /**
    * @brief Sets the required grade to execute the AForm object.
    *
-   * @param grade The new required execution grade for the AForm object.
+   * @param _grade The new required execution grade for the AForm object.
    * @throws AForm::GradeTooHighException If the grade value is too high.
    * @throws AForm::GradeTooLowException If the grade value is too low.
    */
-  void setRequiredExecutionGrade(int grade);
+  void setRequiredExecutionGrade(int _grade);
 
   /**
    * @brief The AForm object is signed if the Bureaucrat object has a grade

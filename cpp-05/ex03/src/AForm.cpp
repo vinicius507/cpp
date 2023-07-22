@@ -16,8 +16,8 @@ AForm::AForm(void)
     : name(""), signedStatus(false), requiredSigningGrade(150),
       requiredExecutionGrade(150) {}
 
-AForm::AForm(const std::string &name)
-    : name(name), signedStatus(false), requiredSigningGrade(150),
+AForm::AForm(const std::string &_name)
+    : name(_name), signedStatus(false), requiredSigningGrade(150),
       requiredExecutionGrade(150) {}
 
 AForm::AForm(const AForm &other)
@@ -50,24 +50,24 @@ void AForm::setName(const std::string &_name) {
   const_cast<std::string &>(this->name) = _name;
 }
 
-void AForm::setRequiredSigningGrade(int grade) {
-  if (grade < 1) {
+void AForm::setRequiredSigningGrade(int _grade) {
+  if (_grade < 1) {
     throw AForm::GradeTooHighException();
   }
-  if (grade > 150) {
+  if (_grade > 150) {
     throw AForm::GradeTooLowException();
   }
-  const_cast<int &>(this->requiredSigningGrade) = grade;
+  const_cast<int &>(this->requiredSigningGrade) = _grade;
 }
 
-void AForm::setRequiredExecutionGrade(int grade) {
-  if (grade < 1) {
+void AForm::setRequiredExecutionGrade(int _grade) {
+  if (_grade < 1) {
     throw AForm::GradeTooHighException();
   }
-  if (grade > 150) {
+  if (_grade > 150) {
     throw AForm::GradeTooLowException();
   }
-  const_cast<int &>(this->requiredExecutionGrade) = grade;
+  const_cast<int &>(this->requiredExecutionGrade) = _grade;
 }
 
 void AForm::beSigned(const Bureaucrat &b) {

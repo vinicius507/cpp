@@ -41,9 +41,9 @@ public:
    * Constructs a Form object with the specified name and the default required
    * grades of 150.
    *
-   * @param name The name of the Form object.
+   * @param _name The name of the Form object.
    */
-  explicit Form(const std::string &name);
+  explicit Form(const std::string &_name);
 
   /**
    * @brief Copy constructor for the Form object.
@@ -96,20 +96,20 @@ public:
   /**
    * @brief Sets the required grade to sign the Form object.
    *
-   * @param grade The new required signing grade for the Form object.
+   * @param _grade The new required signing grade for the Form object.
    * @throws Form::GradeTooHighException If the grade value is too high.
    * @throws Form::GradeTooLowException If the grade value is too low.
    */
-  void setRequiredSigningGrade(int grade);
+  void setRequiredSigningGrade(int _grade);
 
   /**
    * @brief Sets the required grade to execute the Form object.
    *
-   * @param grade The new required execution grade for the Form object.
+   * @param _grade The new required execution grade for the Form object.
    * @throws Form::GradeTooHighException If the grade value is too high.
    * @throws Form::GradeTooLowException If the grade value is too low.
    */
-  void setRequiredExecutionGrade(int grade);
+  void setRequiredExecutionGrade(int _grade);
 
   /**
    * @brief The Form object is signed if the Bureaucrat object has a grade
