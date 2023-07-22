@@ -21,14 +21,14 @@ ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm() {
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
-    : target(target) {
+    : AForm(), target(target) {
   this->setName("Shrubbery Creation Form - " + target);
   this->setRequiredSigningGrade(145);
   this->setRequiredExecutionGrade(137);
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
-    : target(other.getTarget()) {
+    : AForm(), target(other.getTarget()) {
   this->setName(other.getName());
   this->setRequiredSigningGrade(145);
   this->setRequiredExecutionGrade(137);
