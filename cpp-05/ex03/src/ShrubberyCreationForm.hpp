@@ -35,9 +35,9 @@ public:
    *
    * Constructs a ShrubberyCreationForm object for the specified target.
    *
-   * @param target The target of the ShrubberyCreationForm object.
+   * @param _target The target of the ShrubberyCreationForm object.
    */
-  ShrubberyCreationForm(const std::string &target);
+  ShrubberyCreationForm(const std::string &_target);
 
   /**
    * @brief Copy constructor for the ShrubberyCreationForm class.

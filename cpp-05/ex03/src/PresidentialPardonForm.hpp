@@ -35,9 +35,9 @@ public:
    *
    * Constructs a PresidentialPardonForm object for the specified target.
    *
-   * @param target The target of the PresidentialPardonForm object.
+   * @param _target The target of the PresidentialPardonForm object.
    */
-  PresidentialPardonForm(const std::string &target);
+  PresidentialPardonForm(const std::string &_target);
 
   /**
    * @brief Copy constructor for the PresidentialPardonForm class.

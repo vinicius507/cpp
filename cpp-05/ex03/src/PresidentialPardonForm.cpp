@@ -18,9 +18,9 @@ PresidentialPardonForm::PresidentialPardonForm(void) : AForm() {
   this->setRequiredExecutionGrade(5);
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
-    : AForm(), target(target) {
-  this->setName("Presidential Pardon Form for " + target);
+PresidentialPardonForm::PresidentialPardonForm(const std::string &_target)
+    : AForm(), target(_target) {
+  this->setName("Presidential Pardon Form for " + _target);
   this->setRequiredSigningGrade(25);
   this->setRequiredExecutionGrade(5);
 }

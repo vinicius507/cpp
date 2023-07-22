@@ -20,9 +20,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm() {
   this->setRequiredExecutionGrade(137);
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
-    : AForm(), target(target) {
-  this->setName("Shrubbery Creation Form - " + target);
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &_target)
+    : AForm(), target(_target) {
+  this->setName("Shrubbery Creation Form - " + _target);
   this->setRequiredSigningGrade(145);
   this->setRequiredExecutionGrade(137);
 }

@@ -40,9 +40,9 @@ public:
    *
    * Constructs a RobotomyRequestForm with the specified target.
    *
-   * @param target The target of the RobotomyRequestForm object.
+   * @param _target The target of the RobotomyRequestForm object.
    */
-  RobotomyRequestForm(const std::string &target);
+  RobotomyRequestForm(const std::string &_target);
 
   /**
    * @brief Copy constructor for the RobotomyRequestForm class.

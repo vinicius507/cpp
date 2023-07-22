@@ -19,9 +19,9 @@ RobotomyRequestForm::RobotomyRequestForm(void) : AForm() {
   this->setRequiredExecutionGrade(45);
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
-    : AForm(), target(target) {
-  this->setName("Robotomy Request Form - " + target);
+RobotomyRequestForm::RobotomyRequestForm(const std::string &_target)
+    : AForm(), target(_target) {
+  this->setName("Robotomy Request Form - " + _target);
   this->setRequiredSigningGrade(72);
   this->setRequiredExecutionGrade(45);
 }
