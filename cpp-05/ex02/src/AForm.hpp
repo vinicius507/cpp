@@ -134,7 +134,7 @@ public:
    *
    * @param executor The Bureaucrat object who will execute the AForm object.
    */
-  virtual void execute(const Bureaucrat &executor) const;
+  virtual void execute(const Bureaucrat &executor) const = 0;
 
   /**
    * @class GradeTooHighException

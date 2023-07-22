@@ -79,11 +79,6 @@ void AForm::beSigned(const Bureaucrat &b) {
 
 bool AForm::isSigned(void) const { return (this->signedStatus); }
 
-void AForm::execute(const Bureaucrat &executor) const {
-  std::cerr << "Abstract method called." << std::endl;
-  (void)executor;
-}
-
 const char *AForm::GradeTooHighException::what(void) const throw() {
   return "the grade provided is too high";
 }
