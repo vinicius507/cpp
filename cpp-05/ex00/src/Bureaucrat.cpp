@@ -15,14 +15,14 @@
 
 Bureaucrat::Bureaucrat(void) : name(""), grade(150) {}
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name) {
-  if (grade < 1) {
+Bureaucrat::Bureaucrat(const std::string &_name, int _grade) : name(_name) {
+  if (_grade < 1) {
     throw Bureaucrat::GradeTooHighException();
   }
-  if (grade > 150) {
+  if (_grade > 150) {
     throw Bureaucrat::GradeTooLowException();
   }
-  this->grade = grade;
+  this->grade = _grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) { *this = other; }

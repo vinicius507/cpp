@@ -40,12 +40,12 @@ public:
    *
    * Constructs a Bureaucrat object with the specified name and grade.
    *
-   * @param name The name of the Bureaucrat.
-   * @param grade The grade of the Bureaucrat.
+   * @param _name The name of the Bureaucrat.
+   * @param _grade The grade of the Bureaucrat.
    * @throws Bureaucrat::GradeTooHighException If the grade is too high.
    * @throws Bureaucrat::GradeTooLowException If the grade is too low.
    */
-  explicit Bureaucrat(const std::string &name, int grade);
+  explicit Bureaucrat(const std::string &_name, int _grade);
 
   /**
    * @brief Copy constructor for the Bureaucrat class.
