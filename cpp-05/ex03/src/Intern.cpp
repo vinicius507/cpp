@@ -30,6 +30,7 @@ Intern &Intern::operator=(const Intern &other) {
 AForm *Intern::makeForm(const std::string type,
                         const std::string target) const {
   int formIdx;
+  AForm *form;
   const std::string formTypes[3] = {"presidential pardon", "robotomy request",
                                     "shrubbery creation"};
 
@@ -39,14 +40,21 @@ AForm *Intern::makeForm(const std::string type,
   }
   switch (formIdx) {
   case 0:
-    return (new PresidentialPardonForm(target));
+    form = (new PresidentialPardonForm(target));
+    break;
   case 1:
-    return (new RobotomyRequestForm(target));
+    form = (new RobotomyRequestForm(target));
+    break;
   case 2:
-    return (new ShrubberyCreationForm(target));
+    form = (new ShrubberyCreationForm(target));
+    break;
   default:
-    std::cerr << "Error: " << type << ": unknown form type" << std::endl;
+    form = NULL;
     break;
   }
-  return (NULL);
+  if (form == NULL)
+    std::cerr << "Error: " << type << ": unknown form type" << std::endl;
+  else
+    std::cout << "Intern creates " << type << " form" << std::endl;
+  return (form);
 }
