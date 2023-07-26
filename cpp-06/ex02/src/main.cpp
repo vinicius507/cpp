@@ -79,6 +79,6 @@ int main(void) {
     identify(b);
     delete b;
   }
-  identify(reinterpret_cast<Base *>(NULL));
+  identify(static_cast<Base *>(NULL));
   return (0);
 }
