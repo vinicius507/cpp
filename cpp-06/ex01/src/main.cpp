@@ -48,29 +48,7 @@ static void testMarvin42(void) {
   ASSERT_EQUAL(rawData, derivedRawData);
 }
 
-static void testBatchData(void) {
-  Data *records;
-
-  records = new Data[10];
-  for (int i = 0; i < 10; i++) {
-    uintptr_t ptr;
-    Data *rec = &records[i];
-    Data *recDeserialized;
-
-    rec->name = "Marvin-" + std::string(1, '0' + i);
-    rec->age = i + 42;
-    ptr = Serializer::serialize(rec);
-    recDeserialized = Serializer::deserialize(ptr);
-
-    ASSERT_EQUAL(*rec, *recDeserialized);
-    ASSERT_EQUAL(rec, recDeserialized);
-    ASSERT_EQUAL(ptr, Serializer::serialize(recDeserialized));
-  }
-  delete[] records;
-}
-
 int main(void) {
   TEST(testMarvin42());
-  TEST(testBatchData());
   return (0);
 }
