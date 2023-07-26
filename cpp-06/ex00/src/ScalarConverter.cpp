@@ -161,7 +161,7 @@ std::string ScalarConverter::displayChar(int c) {
   bool isNullChar = c == '\0';
   bool charOverflows = (c & 0xff) != c;
 
-  if (isNullChar && charOverflows) {
+  if (isNullChar || charOverflows) {
     return ("Impossible");
   }
   if (!std::isprint(c)) {
