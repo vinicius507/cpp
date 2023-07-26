@@ -85,22 +85,25 @@ bool ScalarConverter::isIntLiteral(const std::string &literal) {
 }
 
 bool ScalarConverter::isFloatLiteral(const std::string &literal) {
-  float f;
   size_t len;
-  std::stringstream ss;
 
   len = literal.length();
   if (len < 2) {
     return (false);
   }
-  ss.str(literal.substr(0, len - 1));
-  return ((ss >> f) && (ss.eof()) && (literal[len - 1] == 'f'));
+  return (isDoubleLiteral(literal.substr(0, len - 1)) && literal.at(len - 1) == 'f');
 }
 
 bool ScalarConverter::isDoubleLiteral(const std::string &literal) {
   double d;
-  std::istringstream ss(literal);
+  std::istringstream ss;
+  bool isNan = literal == "nan" || literal == "-nan";
+  bool isInf = literal == "inf" || literal == "-inf";
 
+  if (isNan || isInf) {
+    return (true);
+  }
+  ss.str(literal);
   return ((ss >> d) && (ss.eof()));
 }
 
