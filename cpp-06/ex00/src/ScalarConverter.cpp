@@ -107,8 +107,7 @@ bool ScalarConverter::isDoubleLiteral(const std::string &literal) {
 void ScalarConverter::convertChar(const std::string &literal) {
   char c = literal[1];
 
-  std::cout << "char: " << (std::isprint(c) ? literal : "Non displayable")
-            << std::endl
+  std::cout << "char: " << displayChar(c) << std::endl
             << "int: " << static_cast<int>(c) << std::endl
             << "float: " << static_cast<float>(c) << "f" << std::endl
             << "double: " << static_cast<double>(c) << "" << std::endl;
@@ -159,9 +158,10 @@ void ScalarConverter::convertDouble(const std::string &literal) {
 
 std::string ScalarConverter::displayChar(int c) {
   std::stringstream ss;
+  bool isNullChar = c == '\0';
   bool charOverflows = (c & 0xff) != c;
 
-  if (charOverflows) {
+  if (isNullChar && charOverflows) {
     return ("Impossible");
   }
   if (!std::isprint(c)) {
