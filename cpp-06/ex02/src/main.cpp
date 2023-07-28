@@ -70,13 +70,35 @@ void identify(Base *b) {
   std::cerr << "Error: invalid pointer type." << std::endl;
 }
 
+/**
+ * @brief Tries to identify whether a reference to a Base object is from A, B, or C.
+ * @param b A reference to an object derived from Base.
+ */
+void identify(Base &b) {
+  try {
+    (void)dynamic_cast<A &>(b);
+    std::cout << "A" << std::endl;
+  } catch (std::exception &e){}
+  try {
+    (void)dynamic_cast<B &>(b);
+    std::cout << "B" << std::endl;
+  } catch (std::exception &e){}
+  try {
+    (void)dynamic_cast<C &>(b);
+    std::cout << "C" << std::endl;
+  } catch (std::exception &e){}
+}
+
 int main(void) {
   Base *b;
 
   std::srand((unsigned)time(NULL));
   for (int i = 0; i < 10; i++) {
     b = generate();
+    std::cout << "Identify by pointer" << std::endl;
     identify(b);
+    std::cout << "Identify by reference" << std::endl;
+    identify(*b);
     delete b;
   }
   identify(static_cast<Base *>(NULL));
