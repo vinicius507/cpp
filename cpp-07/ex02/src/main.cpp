@@ -37,7 +37,7 @@
       std::cout << "[KO] " #EXPR " did not throw the exception " #EXC          \
                 << std::endl;                                                  \
     } catch (std::exception & e) {                                             \
-      if (e.what() == EXC().what()) {                                          \
+      if (dynamic_cast<EXC *>(&e) != NULL) {                                   \
         std::cout << "[OK] " #EXPR " did throw " #EXC << std::endl;            \
       } else {                                                                 \
         std::cout << "[KO] " #EXPR " did not throw " #EXC << std::endl;        \
