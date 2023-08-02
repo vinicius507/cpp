@@ -34,7 +34,7 @@ public:
    *
    * Constructs an Array of type `T` with 0 elements.
    */
-  Array(void) : _arr(NULL), _length(0){};
+  Array(void) : _arr(new T[0]), _length(0) {};
 
   /**
    * @brief Parametrized constructor for the Array template class.
@@ -44,11 +44,7 @@ public:
    *
    * @param n The number of default elements in the array.
    */
-  Array(unsigned int n) : _arr(NULL), _length(n) {
-    if (n) {
-      this->_arr = new T[n]();
-    }
-  };
+  Array(unsigned int n) : _arr(new T[n]()), _length(n) {};
 
   /**
    * @brief Copy constructor for the Array template class.
@@ -57,15 +53,9 @@ public:
    *
    * @param other The array to be copied.
    */
-  Array(const Array<T> &other) : _arr(NULL), _length(other.size()) {
-    size_t size;
-
-    size = this->size();
-    if (size) {
-      this->_arr = new T[size]();
-      for (size_t i = 0; i < size; i++) {
-        this->_arr[i] = other[i];
-      }
+  Array(const Array<T> &other) : _arr(new T[other.size()]()), _length(other.size()) {
+    for (size_t i = 0; i < other.size(); i++) {
+      this->_arr[i] = other[i];
     }
   }
 
@@ -73,9 +63,7 @@ public:
    * @brief Destructor for the Array class.
    */
   ~Array(void) {
-    if (this->size()) {
-      delete[] this->_arr;
-    }
+    delete[] this->_arr;
     this->_arr = NULL;
     this->_length = 0;
   };
@@ -89,10 +77,8 @@ public:
   Array<T> &operator=(const Array<T> &other) {
     size_t size;
 
-    if (this->size()) {
-      delete[] this->_arr;
-    }
     size = other.size();
+    delete[] this->_arr;
     this->_arr = new T[size]();
     this->_length = size;
     for (size_t i = 0; i < size; i++) {

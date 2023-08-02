@@ -70,7 +70,7 @@ void testLargeDefaultArray(void) {
 }
 
 void testIndexOutOfBounds(void) {
-  Array<int> arr(0);
+  Array<int> arr;
 
   EXPECT_EXCEPTION(arr[0], Array<int>::IndexOutOfBounds);
 }
