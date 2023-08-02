@@ -108,7 +108,6 @@ int main(void) {
   TEST(testSmallDefaultArray());
   TEST(testLargeDefaultArray());
   TEST(testIndexOutOfBounds());
-  TEST(testIndexOutOfBounds());
   TEST(testCopyConstructor());
   TEST(testAssignmentOperator());
   return (0);
