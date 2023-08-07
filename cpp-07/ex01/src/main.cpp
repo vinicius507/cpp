@@ -50,9 +50,48 @@ static void testStringArray(void) {
   iter(arr, 10, ::printValue);
 }
 
+static void testConstVariable(void) {
+  const int arr[10] = {0};
+
+  iter(arr, 10, ::printValue<const int>);
+}
+
+class Test {
+public:
+  Test(void) {
+    this->_n = objectCount;
+    objectCount++;
+  }
+  int getN(void) const { return (this->_n); }
+private:
+  int _n;
+  static int objectCount;
+};
+int Test::objectCount = 0;
+
+std::ostream &operator<<(std::ostream &out, const Test &test) {
+  out << "Test(n="<< test.getN() << ")";
+  return (out);
+}
+
+static void testObject(void) {
+  Test arr[10];
+
+  iter(arr, 10, ::printValue<Test>);
+}
+
+static void testConstObject(void) {
+  const Test arr[10];
+
+  iter(arr, 10, ::printValue<const Test>);
+}
+
 int main(void) {
   TEST(testIntArray());
   TEST(testDoubleArray());
   TEST(testStringArray());
+  TEST(testConstVariable());
+  TEST(testObject());
+  TEST(testConstObject());
   return (0);
 }

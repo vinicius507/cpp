@@ -16,13 +16,13 @@
 #include <cstddef>
 #include <iostream>
 
-template <class T> void iter(T *arr, size_t length, void (*f)(const T &)) {
+template <class T> void iter(T *arr, size_t length, void (*f)(T &)) {
   for (size_t i = 0; i < length; i++) {
     f(arr[i]);
   }
 }
 
-template <class T> void printValue(const T &obj) {
+template <class T> void printValue(T &obj) {
   std::cout << obj << std::endl;
 }
 
