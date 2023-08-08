@@ -16,6 +16,18 @@
 #include <cstddef>
 #include <iostream>
 
+/**
+ * @brief Apply a function to each element of an array.
+ * 
+ * This template function iterates over an array and applies a given function to each element.
+ * 
+ * @tparam T The type of elements in the array.
+ * 
+ * @param arr Pointer to the array of elements.
+ * @param length The number of elements in the array.
+ * @param f Pointer to the function to be applied to each element.
+ *           The function should take a reference to an element of type T as its argument.
+ */
 template <typename T>
 void iter(T *arr, size_t length, void (*f)(T &)) {
   for (size_t i = 0; i < length; i++) {
@@ -23,6 +35,9 @@ void iter(T *arr, size_t length, void (*f)(T &)) {
   }
 }
 
+/**
+ * @brief Prints an object to stdout.
+ */
 template <typename T>
 void printValue(T &obj) {
   std::cout << obj << std::endl;
