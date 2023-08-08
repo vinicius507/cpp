@@ -88,12 +88,14 @@ public:
    * @throw NoCapacityException if there is not enough capacity to add all the
    * numbers.
    */
-  template <typename I> void addNumbers(I begin, I end) {
-    size_t vacantNums = this->capacity() - this->size();
+  template <typename I>
+  void addNumbers(I begin, I end) {
+    size_t vacantNums;
 
     if (this->isFull()) {
       throw SpanIsFullException();
     }
+    vacantNums = this->capacity() - this->size();
     if (vacantNums < static_cast<size_t>(std::distance(begin, end))) {
       throw NoCapacityException();
     }

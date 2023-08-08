@@ -67,7 +67,7 @@ static void testShortSpan(void) {
   sp.addNumber(10);
 
   EXPECT(sp.shortestSpan(), 1);
-  EXPECT(sp.longestSpan(), 9);
+  EXPECT(sp.longestSpan(), 10);
 }
 
 static void testLargeSpan(void) {
@@ -78,7 +78,7 @@ static void testLargeSpan(void) {
   sp.addNumbers(vec.begin(), vec.end());
 
   EXPECT(sp.shortestSpan(), 1);
-  EXPECT(sp.longestSpan(), 1024);
+  EXPECT(sp.longestSpan(), 2047);
 }
 
 static void testSpanAddNumberIsFullException(void) {

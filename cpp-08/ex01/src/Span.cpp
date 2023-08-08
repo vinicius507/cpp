@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <algorithm>
+#include <functional>
 #include <cmath>
 #include <limits>
 #include <utility>
@@ -50,44 +52,31 @@ size_t Span::size(void) const { return (this->_numbers.size()); }
 bool Span::isFull(void) const { return (this->size() == this->capacity()); }
 
 int Span::shortestSpan(void) const {
-  int span = std::numeric_limits<int>::max();
+  std::vector<int> sorted;
   std::vector<int>::const_iterator it, next;
+  int span = std::numeric_limits<int>::max();
 
   if (this->size() <= 1) {
     throw NotEnoughValuesException();
   }
-
+  sorted = std::vector<int>(this->_numbers);
+  std::sort(sorted.begin(), sorted.end(), std::less<int>());
   for (it = this->_numbers.begin(); it != this->_numbers.end(); it++) {
-    next = it + 1; // This is possible because std::vector<T>::const_iterator
-                   // is a Random Access Iterator.
-    if (next == this->_numbers.end()) {
-      break;
-    }
-    if (std::abs(*next - *it) < span) {
-      span = std::abs(*next - *it);
-    }
+    next = it + 1;
+    span = std::min(std::abs(*it - *next), span);
   }
   return (span);
 }
 
 int Span::longestSpan(void) const {
-  int span = 0;
-  std::vector<int>::const_iterator it, next;
+  std::vector<int>::const_iterator min, max;
 
   if (this->size() <= 1) {
     throw NotEnoughValuesException();
   }
-
-  for (it = this->_numbers.begin(); it != this->_numbers.end(); it++) {
-    next = it + 1;
-    if (next == this->_numbers.end()) {
-      break;
-    }
-    if (std::abs(*next - *it) > span) {
-      span = *next - *it;
-    }
-  }
-  return (span);
+  min = std::min_element(this->_numbers.begin(), this->_numbers.end());
+  max = std::max_element(this->_numbers.begin(), this->_numbers.end());
+  return (*max - *min);
 }
 
 const char *Span::SpanIsFullException::what(void) const throw() {
