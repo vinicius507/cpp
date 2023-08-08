@@ -27,7 +27,7 @@
  *
  * @tparam T The type of the elements of the Array.
  */
-template <class T> class Array {
+template <typename T> class Array {
 public:
   /**
    * @brief Default constructor for the Array template class.

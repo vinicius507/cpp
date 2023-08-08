@@ -20,7 +20,7 @@
  * @param a The first value of type `T`.
  * @param b The second value of type `T`.
  */
-template <class T> void swap(T &a, T &b) {
+template <typename T> void swap(T &a, T &b) {
   T aux;
 
   aux = a;
@@ -39,7 +39,7 @@ template <class T> void swap(T &a, T &b) {
  * @param b The second value of type `T`.
  * @return The maximum value between `a` and `b`.
  */
-template <class T> T max(T a, T b) {
+template <typename T> T max(T a, T b) {
   if (a > b) {
     return (a);
   }
@@ -57,7 +57,7 @@ template <class T> T max(T a, T b) {
  * @param b The second value of type `T`.
  * @return The minimum value between `a` and `b`.
  */
-template <class T> T min(T a, T b) {
+template <typename T> T min(T a, T b) {
   if (a < b) {
     return (a);
   }
