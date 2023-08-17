@@ -1,17 +1,36 @@
 # C++ Piscine
+This repository contains my CPP Piscine at 42 School.
+The project focuses on learning Object Oriented Programming while learning C++ with the 98 standard.
 
-> **Note**
+The project involves learning:
+
+- C++ Streams
+- Classes
+- Inheritance
+- Polimorphism
+- C++ Containers
+- C++ STL
+
+## Requirements
+> **Warning**
 >
-> This repository contains my projects from the École 42 C++ Piscine.
+> This project is meant to be built with the packaged versions available at your 42 School.
 
-## CPP-00: Introduction to C++
+- clang v12
+- GNU Make
+- libcxxClang
 
-This module introduces the C++ language and some of its features, like C++ Streams and Classes.
+## Usage
+Each `cpp-XX` module exercises possess a `Makefile`.
+To compile `ex00` from `cpp-00`, for example:
 
-[`🔗 README.md`](./cpp-00/README.md)
+```sh
+$ make -C cpp-00/ex00 
+make: Entering directory '/home/vini/Code/cpp/cpp-00/ex00'
+c++ -Wall -Werror -Wextra -std=c++98 megaphone.cpp -c -o build/megaphone.o
+c++ -Wall -Werror -Wextra -std=c++98 build/megaphone.o -o megaphone
+make: Leaving directory '/home/vini/Code/cpp/cpp-00/ex00'
 
-## CPP-01
-
-This module goes deeper into C++ streams and classes.
-
-[`🔗 README.md`](./cpp-01/README.md)
+$ ./cpp-00/ex00/megaphone 'hey, what is this?'
+HEY, WHAT IS THIS?
+```
