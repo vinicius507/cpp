@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <cstdlib>
+#include <iostream>
 #include <algorithm>
 #include <functional>
 #include <cmath>
@@ -61,8 +63,11 @@ int Span::shortestSpan(void) const {
   }
   sorted = std::vector<int>(this->_numbers);
   std::sort(sorted.begin(), sorted.end(), std::less<int>());
-  for (it = this->_numbers.begin(); it != this->_numbers.end(); it++) {
+  for (it = sorted.begin(); it != sorted.end(); it++) {
     next = it + 1;
+    if (next == sorted.end()) {
+      break;
+    }
     span = std::min(std::abs(*it - *next), span);
   }
   return (span);
