@@ -102,7 +102,7 @@ public:
     for (I it = begin; it != end; it++) {
       this->_numbers.push_back(*it);
     }
-  };
+  }
 
   /**
    * @brief Retrieves the total capacity of the Span object.
