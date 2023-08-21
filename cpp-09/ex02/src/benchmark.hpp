@@ -44,7 +44,7 @@ void benchSort(const std::string &type, Seq &seq, void (*sortFunc)(Seq &)) {
   gettimeofday(&end, NULL);
   std::cout << "After: " << seqToString(seq) << std::endl;
   if (!PmergeMe::isSorted(seq)) {
-    std::cerr << "Error: std::vector is not sorted." << std::endl;
+    std::cerr << "Error: " << type << " is not sorted." << std::endl;
   }
   elapsedTime = (end.tv_usec - begin.tv_usec);
   elapsedTime += (end.tv_sec - begin.tv_sec) * 1000000;
