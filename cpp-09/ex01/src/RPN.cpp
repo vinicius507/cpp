@@ -15,18 +15,22 @@
 RPN::RPN(void) {}
 
 RPN::RPN(const std::string &expr) {
-  size_t i;
+  std::string::size_type idx;
+  std::string::const_reverse_iterator it;
   std::string allowedChars("0123456789+-*/");
 
-  i = expr.length();
-  while (i-- > 0) {
-    if (std::isspace(expr[i])) {
+  idx = expr.find_first_not_of(allowedChars + ' ');
+  if (idx != std::string::npos) {
+    throw std::runtime_error(std::string("Invalid token: '") + expr[idx] + '\'');
+  }
+  if (expr.find_first_of(allowedChars) == std::string::npos) {
+    throw std::runtime_error("Empty expression");
+  }
+  for (it = expr.rbegin(); it != expr.rend(); ++it) {
+    if (std::isspace(*it)) {
       continue;
     }
-    if (allowedChars.find(expr[i]) == std::string::npos) {
-      throw std::runtime_error(std::string("Invalid token: ") + expr[i]);
-    }
-    this->_tokens.push(expr[i]);
+    this->_tokens.push(*it);
   }
 }
 
@@ -44,11 +48,14 @@ RPN &RPN::operator=(const RPN &other) {
 int RPN::result(void) const {
   std::stack<int> aux;
   std::string ops("+-*/");
-  std::stack<char> stackCopy(this->_tokens);
+  std::stack<char> stackCopy;
 
+  if (this->_tokens.size() == 1) {
+    throw std::runtime_error("Unterminated expression");
+  }
+  stackCopy = std::stack<char>(this->_tokens);
   while (!stackCopy.empty()) {
     char c = popStack(stackCopy);
-
     if (std::isdigit(c)) {
       aux.push(c - '0');
       continue;
@@ -79,7 +86,7 @@ int RPN::doOp(char op, int firstOperand, int secondOperand) const {
     break;
   case '/':
     if (secondOperand == 0) {
-      throw std::runtime_error("Division by 0");
+      throw std::runtime_error("Division by zero");
     }
     return (firstOperand / secondOperand);
     break;
