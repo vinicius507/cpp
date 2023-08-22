@@ -54,7 +54,7 @@ int RPN::result(void) const {
       continue;
     }
     if (aux.size() < 2) {
-      throw std::runtime_error(std::string("Unexpected token: ") + c);
+      throw std::runtime_error("Insufficient operands");
     }
     int secondOperand = popStack(aux);
     int firstOperand = popStack(aux);
