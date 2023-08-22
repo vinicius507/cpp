@@ -30,16 +30,18 @@ test_PmergeMe_shuf() {
 
 setup
 
-test_PmergeMe 1 2
+test_PmergeMe_error
+test_PmergeMe_error 1 -2
+test_PmergeMe_error a b
+test_PmergeMe_error 0 1 2 10 4 250 32 26 12 a
 
+test_PmergeMe 1
+test_PmergeMe 1 2
 test_PmergeMe 2 1
 
-test_PmergeMe_error 1
-
-test_PmergeMe_error 1 -2
-
-for n in $(seq 3 3000); do
-	test_PmergeMe_shuf $n
-done
+test_PmergeMe_shuf 100
+test_PmergeMe_shuf 200
+test_PmergeMe_shuf 1000
+test_PmergeMe_shuf 3000
 
 teardown

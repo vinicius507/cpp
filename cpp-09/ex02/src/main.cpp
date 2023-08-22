@@ -29,15 +29,17 @@ static void usage(const char *pname) {
 
 static uint *parseArgs(int argc, char **argv) {
   uint *arr;
+  std::string digits("0123456789");
 
-  if (argc < 2) {
-    throw std::runtime_error("Expected a sequence of two or more numbers.");
+  if (argc == 0) {
+    throw std::runtime_error("insufficient arguments");
   }
   arr = new uint[argc]();
   for (int i = 0; i < argc; i++) {
     int n = std::atoi(argv[i]);
-    if (n < 0) {
-      throw std::runtime_error("Expected a sequence of non-negative numbers.");
+    int isNumberString = std::string(argv[i]).find_first_not_of(digits) == std::string::npos;
+    if (!isNumberString || n < 0) {
+      throw std::runtime_error(std::string("invalid argument: '") + argv[i] + '\'');
     }
     arr[i] = static_cast<uint>(n);
   }
