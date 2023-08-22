@@ -39,7 +39,7 @@ static uint *parseArgs(int argc, char **argv) {
     int n = std::atoi(argv[i]);
     int isNumberString = std::string(argv[i]).find_first_not_of(digits) == std::string::npos;
     if (!isNumberString || n < 0) {
-      throw std::runtime_error(std::string("invalid argument: '") + argv[i] + '\'');
+      throw std::runtime_error("invalid arguments");
     }
     arr[i] = static_cast<uint>(n);
   }
