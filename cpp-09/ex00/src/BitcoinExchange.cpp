@@ -68,7 +68,7 @@ float BitcoinExchange::exchange(const std::string &date, float amount) {
   it = this->_exchangeRates.lower_bound(date);
   if (it == this->_exchangeRates.begin()) {
     if (it->first > date) {
-      throw std::runtime_error("No exchange rate prior to " + date);
+      throw std::runtime_error("No exchange rate for/prior to " + date);
     }
     return (it->second * amount);
   }
