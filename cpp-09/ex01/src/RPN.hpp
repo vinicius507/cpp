@@ -102,15 +102,15 @@ private:
    * @return The popped element from the stack.
    * @throw std::runtime_error If the stack is empty.
    */
-  template <typename T> static char popStack(std::stack<T> &stack) {
-    char c;
+  template <typename T> static T popStack(std::stack<T> &stack) {
+    T value;
 
     if (stack.empty()) {
       throw std::runtime_error("Unexpected end of stack");
     }
-    c = stack.top();
+    value = stack.top();
     stack.pop();
-    return (c);
+    return (value);
   }
 };
 

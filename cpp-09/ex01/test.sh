@@ -43,6 +43,7 @@ test "4 2 /" "2"
 test "2 3 *" "6"
 test "8 2 /" "4"
 test "9 3 - 2 / 7 +" "10"
+test "9 8 * 4 * 4 / 2 + 9 - 8 - 8 - 1 - 6 -" "42"
 
 test "a b +" "Error: Invalid token: 'a'"
 test "3 4 c +" "Error: Invalid token: 'c'"
