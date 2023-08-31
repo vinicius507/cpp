@@ -36,6 +36,25 @@ void iter(T *arr, size_t length, void (*f)(T &)) {
 }
 
 /**
+ * @brief Apply a function to each element of an array.
+ * 
+ * This template function iterates over an array and applies a given function to each element.
+ * 
+ * @tparam T The type of the const elements in the array.
+ * 
+ * @param arr Pointer to the array of const elements.
+ * @param length The number of const elements in the array.
+ * @param f Pointer to the function to be applied to each element.
+ *           The function should take a reference to a const element of type T as its argument.
+ */
+template <typename T>
+void iter(const T *arr, size_t length, void (*f)(const T &)) {
+  for (size_t i = 0; i < length; i++) {
+    f(arr[i]);
+  }
+}
+
+/**
  * @brief Prints an object to stdout.
  */
 template <typename T>
