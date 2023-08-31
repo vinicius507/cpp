@@ -86,6 +86,12 @@ static void testConstObject(void) {
   iter(arr, 10, ::printValue<const Test>);
 }
 
+static void testConstCorrectness(void) {
+  int arr[10] = {0};
+
+  iter(arr, 10, ::printValue<const int>);
+}
+
 int main(void) {
   TEST(testIntArray());
   TEST(testDoubleArray());
@@ -93,5 +99,6 @@ int main(void) {
   TEST(testConstVariable());
   TEST(testObject());
   TEST(testConstObject());
+  TEST(testConstCorrectness());
   return (0);
 }
