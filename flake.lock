@@ -1,44 +1,21 @@
 {
   "nodes": {
-    "ft-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1688417410,
-        "narHash": "sha256-zd8+AmYpQSYlYSzGX2VRMpD4CwLdnuXDxJKFTfDLefs=",
-        "owner": "vinicius507",
-        "repo": "42-nix",
-        "rev": "28492db5a369308e13e0be9e98e3e5010692c0b1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vinicius507",
-        "repo": "42-nix",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1688566749,
-        "narHash": "sha256-3Og5xbNk1qncLWl2zrrL/k80UqRI/nEGPEbzz306Izk=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "c99004f75fd28cc10b9d2e01f51a412d768269c8",
-        "type": "github"
+        "lastModified": 1713145326,
+        "narHash": "sha256-m7+IWM6mkWOg22EC5kRUFCycXsXLSU7hWmHdmBfmC3s=",
+        "path": "/nix/store/g861759ghxxwvyfdbv17xf3iahgm8rcb-source",
+        "rev": "53a2c32bc66f5ae41a28d7a9a49d321172af621e",
+        "revCount": 557721,
+        "type": "path"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "release-23.05",
-        "repo": "nixpkgs",
-        "type": "github"
+        "id": "nixpkgs",
+        "type": "indirect"
       }
     },
     "root": {
       "inputs": {
-        "ft-nix": "ft-nix",
         "nixpkgs": "nixpkgs"
       }
     }
